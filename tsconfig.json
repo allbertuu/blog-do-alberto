@@ -7,7 +7,9 @@
             "@imgs/*": ["assets/imgs/*"],
             "@utils/*": ["utils/*"],
             "@contexts/*": ["contexts/*"],
-            "@hooks/*": ["hooks/*"]
+            "@hooks/*": ["hooks/*"],
+            "@services/*": ["services/*"],
+            "@validations/*": ["validations/*"]
         },
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],

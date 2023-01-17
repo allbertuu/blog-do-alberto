@@ -6,7 +6,7 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            sans: ["Inter", "sans-serif"],
+            sans: ["Nunito", "sans-serif"],
             titillium: ["Titillium Web", "sans-serif"],
         },
         extend: {},

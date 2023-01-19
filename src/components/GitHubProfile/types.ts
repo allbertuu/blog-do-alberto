@@ -1,4 +1,4 @@
-export interface GitHubProfileProps {}
+export interface GitHubCardProps {}
 
 export interface IGitHubUserData {
     github_user: string;
@@ -11,4 +11,8 @@ export interface IGitHubUserData {
     name: string;
     created_at: string;
     website: string;
+}
+
+export interface GitHubProfileProps {
+    user: IGitHubUserData;
 }

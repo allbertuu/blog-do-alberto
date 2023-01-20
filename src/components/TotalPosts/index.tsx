@@ -1,7 +1,7 @@
 import usePosts from '@hooks/usePosts';
 import { FunctionComponent } from 'react';
 
-/** 
+/**
  * Renderiza o total de posts/publicações (GitHub Issues), formatado em texto
  */
 const TotalPosts: FunctionComponent = () => {
@@ -9,7 +9,8 @@ const TotalPosts: FunctionComponent = () => {
 
     return (
         <p className="text-[#7B96B2] text-lg">
-            <span>{totalPosts}</span> publicações
+            <span>{totalPosts}</span>{' '}
+            {totalPosts === 1 ? 'publicação' : 'publicações'}
         </p>
     );
 };

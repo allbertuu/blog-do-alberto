@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body::-webkit-scrollbar {
+    @apply w-2;
+}
+body::-webkit-scrollbar-track {
+    @apply bg-blue-500;
+}
+body::-webkit-scrollbar-thumb {
+    @apply bg-red-500/90 border-[0.25rem] border-blue-500;
+}
+
+@media (max-width: 360px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (min-width: 1220px) {
+    html {
+        font-size: 105%;
+    }
+}

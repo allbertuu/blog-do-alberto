@@ -1,40 +1,19 @@
 import usePosts from '@hooks/usePosts';
-import API from '@services/api';
 import classNames from '@utils/classNames';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent } from 'react';
 import { SearchInputProps } from './types';
 
 /**
  * Renderiza um componente input para filtro por busca de "posts" (GitHub Issues)
  */
 const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
-    const [inputValue, setInputValue] = useState<string>('');
-    const { setPosts } = usePosts();
-
-    const getFilteredPosts = async () => {
-        try {
-            const res = await API.get('/search/issues', {
-                params: {
-                    q: `${inputValue}%20repo:allbertuu/blog-do-alberto`,
-                },
-            });
-            setPosts(res.data.items);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    useEffect(() => {
-        inputValue ? getFilteredPosts() : null;
-    }, [inputValue]);
+    const { setSearchValue } = usePosts();
 
     return (
         <input
-            {...props}
             id="search-form"
             placeholder="Buscar conteúdo"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             className={classNames(
                 props.className || '',
                 // reset input

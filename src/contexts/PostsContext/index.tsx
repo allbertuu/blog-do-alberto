@@ -7,7 +7,6 @@ export const PostsContext = createContext({} as IPostsContext);
 
 export function PostsProvider({ children }: IPostsProvider) {
     const [posts, setPosts] = useState<TAPIPosts>([]);
-    const [searchValue, setSearchValue] = useState<string>('');
 
     const getPosts = async () => {
         try {
@@ -39,8 +38,7 @@ export function PostsProvider({ children }: IPostsProvider) {
                 posts,
                 setPosts,
                 totalPosts: posts.length,
-                searchValue,
-                setSearchValue,
+                getPosts,
             }}
         >
             {children}

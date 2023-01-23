@@ -21,7 +21,7 @@ const Posts: FunctionComponent<PostsProps> = () => {
         ? renderPosts(filteredPostsBySearch)
         : renderPosts(posts);
 
-    return <section className="grid sm:grid-cols-2">{renderedPosts}</section>;
+    return <section className="grid grid-cols-1 sm:grid-cols-2">{renderedPosts}</section>;
 };
 
 export default Posts;

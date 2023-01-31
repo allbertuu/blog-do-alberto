@@ -1,7 +1,7 @@
 import usePosts from '@hooks/usePosts';
 import API from '@services/api';
 import classNames from '@utils/classNames';
-import debounce from '@utils/debounce';
+import useDebounce from '@hooks/useDebounce';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { SearchInputProps } from './types';
 
@@ -11,6 +11,7 @@ import { SearchInputProps } from './types';
 const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     const [inputValue, setInputValue] = useState<string>('');
     const { setPosts, getPosts } = usePosts();
+    const DEBOUNCE_TIME_IN_MILLISECONDS = 500;
 
     const getFilteredPosts = async () => {
         try {
@@ -25,14 +26,18 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
         }
     };
 
+    const debouncedCallback = useDebounce(
+        getFilteredPosts,
+        DEBOUNCE_TIME_IN_MILLISECONDS,
+    );
+
     useEffect(() => {
-        inputValue ? debounce(getFilteredPosts(), 500) : getPosts();
+        inputValue.trim() ? debouncedCallback() : getPosts();
     }, [inputValue]);
 
     return (
         <input
             {...props}
-            id="search-form"
             placeholder="Buscar conteúdo"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}

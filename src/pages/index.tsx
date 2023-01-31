@@ -1,7 +1,7 @@
 import BlogBanner from '@components/BlogBanner';
 import GitHubCard from '@components/GitHubProfile';
 import LogoBrandContainer from '@components/LogoBrandContainer';
-import Posts from '@components/Posts';
+import PostsSection from '@components/PostsSection';
 import SearchInput from '@components/SearchInput';
 import TotalPosts from '@components/TotalPosts';
 import type { NextPage } from 'next';
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
                     <TotalPosts />
                 </div>
                 <SearchInput className="mb-12 w-full" />
-                <Posts />
+                <PostsSection />
             </main>
         </div>
     );

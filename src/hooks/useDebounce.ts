@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 /**
- * Debounce hook
+ * Debounce hook with useRef
  * @param fn - function to be debounced
  * @param delay - delay in ms
  */

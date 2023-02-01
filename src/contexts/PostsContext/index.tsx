@@ -23,8 +23,8 @@ export function PostsProvider({ children }: IPostsProvider) {
                 };
             });
             setPosts(filteredPosts);
-        } catch (error) {
-            console.error(error);
+        } catch (error: any) {
+            throw new Error(error);
         }
     };
 

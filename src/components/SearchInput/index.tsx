@@ -32,6 +32,8 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     );
 
     useEffect(() => {
+        // se o input estiver vazio, retorna todos os posts, senão, filtra
+        // obs.: o trim() é para remover espaços em branco no início e no fim
         inputValue.trim() ? debouncedCallback() : getPosts();
     }, [inputValue]);
 

@@ -9,7 +9,10 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
     const { created_at, body, title } = post;
 
     return (
-        <article className="p-8 rounded-xl bg-blue-500 hover:outline hover:outline-red-500 hover:outline-2 cursor-pointer max-h-64">
+        <div
+            role={'link'}
+            className="p-8 rounded-xl bg-blue-500 hover:outline hover:outline-red-500 hover:outline-2 cursor-pointer max-h-64"
+        >
             <div className="flex gap-6 mb-5">
                 <h1 className="text-xl text-blue-50 font-bold">{title}</h1>
                 <time className="text-sm text-[#7B96B2] mt-1">
@@ -22,7 +25,7 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
                     {body}
                 </ReactMarkdown>
             </div>
-        </article>
+        </div>
     );
 };
 

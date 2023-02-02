@@ -1,4 +1,5 @@
 import ReactMarkdown from '@components/lib/ReactMarkdown';
+import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { PostCardProps } from './types';
 
@@ -6,12 +7,18 @@ import { PostCardProps } from './types';
  * Renderiza um card com informações sobre 1 post (GitHub Issues)
  */
 const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
-    const { created_at, body, title } = post;
+    const router = useRouter();
+    const { created_at, body, title, number } = post;
+
+    const handleOnClick = () => {
+        router.push(`/posts/${number}`);
+    };
 
     return (
         <div
             role={'link'}
             className="p-8 rounded-xl bg-blue-500 hover:outline hover:outline-red-500 hover:outline-2 cursor-pointer max-h-64"
+            onClick={handleOnClick}
         >
             <div className="flex gap-6 mb-5">
                 <h1 className="text-xl text-blue-50 font-bold">{title}</h1>

@@ -20,6 +20,7 @@ export function PostsProvider({ children }: IPostsProvider) {
                     title: post.title,
                     body: post.body,
                     created_at: formatDate(post.created_at),
+                    number: post.number,
                 };
             });
             setPosts(filteredPosts);

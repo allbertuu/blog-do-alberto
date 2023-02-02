@@ -15,6 +15,7 @@ export interface IPostsContext {
 
 export interface IPost {
     id: number;
+    number: number;
     title: string;
     body: string;
     created_at: string;

@@ -2,8 +2,13 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import LogoBrandContainer from '@components/LogoBrandContainer';
 import BlogBanner from '@components/BlogBanner';
+import PostLoader from '@components/loaders/PostLoader';
+import { useRouter } from 'next/router';
 
 const Post: NextPage = () => {
+    const router = useRouter();
+    const { postId } = router.query;
+
     return (
         <div>
             <Head>
@@ -17,8 +22,10 @@ const Post: NextPage = () => {
             <main className="mx-auto w-full max-w-4xl px-6 pb-40">
                 <LogoBrandContainer />
 
-                {/* PostHeaderCard */}
-                {/* PostBody */}
+                <PostLoader postId={postId}>
+                    {/* <PostHeaderCard /> */}
+                    {/* PostBody */}
+                </PostLoader>
             </main>
         </div>
     );

@@ -13,6 +13,7 @@ import { GitHubCardProps, GitHubProfileProps, IGitHubUserData } from './types';
 import classNames from '@utils/classNames';
 import GitHubIcon from '@assets/icons/github.svg';
 import { formatNumber } from '@utils/formatNumber';
+import { GitHubInfo } from '@components/ui';
 
 /**
  * Informações do meu perfil do GitHub
@@ -64,53 +65,58 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                     role={'group'}
                     className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-blue-100 sm:items-end"
                 >
-                    <GitHubUserInfo>
-                        <Image
-                            src={GitHubIcon}
-                            alt="Ícone do GitHub"
-                            width={18}
-                            height={18}
-                            title="GitHub"
-                            className="w-[1.125rem]"
-                        />
-                        <p>{user.github_user || 'Sem dados'}</p>
-                    </GitHubUserInfo>
+                    <GitHubInfo
+                        icon={
+                            <Image
+                                src={GitHubIcon}
+                                alt="Ícone do GitHub"
+                                width={18}
+                                height={18}
+                                title="GitHub"
+                                className="w-[1.125rem]"
+                            />
+                        }
+                        text={user.github_user || 'Sem dados'}
+                    ></GitHubInfo>
 
-                    <GitHubUserInfo>
-                        <BuildingsIcon
-                            size={'1.125rem'}
-                            weight="fill"
-                            className="text-blue-300"
-                        />
-                        <p>{user.company || 'Sem dados'}</p>
-                    </GitHubUserInfo>
+                    <GitHubInfo
+                        icon={
+                            <BuildingsIcon
+                                size={'1.125rem'}
+                                weight="fill"
+                                className="text-blue-300"
+                            />
+                        }
+                        text={user.company || 'Sem dados'}
+                    />
 
-                    <GitHubUserInfo>
-                        <UsersIcon
-                            size={'1.125rem'}
-                            weight="fill"
-                            className="text-blue-300"
-                        />
-                        <p>{handleFollowersNumber(user.followers)}</p>
-                    </GitHubUserInfo>
+                    <GitHubInfo
+                        icon={
+                            <UsersIcon
+                                size={'1.125rem'}
+                                weight="fill"
+                                className="text-blue-300"
+                            />
+                        }
+                        text={handleFollowersNumber(user.followers)}
+                    />
 
-                    <GitHubUserInfo>
-                        <CakeIcon
-                            size={'1.125rem'}
-                            weight="fill"
-                            className="text-blue-300"
-                        />
-                        <p>Criado em {user.created_at}</p>
-                    </GitHubUserInfo>
+                    <GitHubInfo
+                        icon={
+                            <CakeIcon
+                                size={'1.125rem'}
+                                weight="fill"
+                                className="text-blue-300"
+                            />
+                        }
+                        text={`Criado em ${user.created_at}`}
+                    />
                 </div>
             </div>
         </>
     );
 };
 
-const GitHubUserInfo: FunctionComponent<any> = ({ children }) => {
-    return <span className="flex items-center gap-2">{children}</span>;
-};
 /**
  * Um card com informações do meu perfil do GitHub
  */

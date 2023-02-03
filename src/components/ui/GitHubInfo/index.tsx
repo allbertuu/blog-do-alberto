@@ -11,7 +11,7 @@ const GitHubInfo: FunctionComponent<GitHubInfoProps> = ({ icon, text }) => {
     return (
         <span className="flex items-center gap-2">
             {icon}
-            <p>{text}</p>
+            <p className='leading-none'>{text || 'Sem essa info'}</p>
         </span>
     );
 };

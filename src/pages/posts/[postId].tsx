@@ -4,6 +4,7 @@ import LogoBrandContainer from '@components/LogoBrandContainer';
 import BlogBanner from '@components/BlogBanner';
 import PostLoader from '@components/loaders/PostLoader';
 import { useRouter } from 'next/router';
+import PostHeaderCard from '@components/PostHeaderCard';
 
 const Post: NextPage = () => {
     const router = useRouter();
@@ -23,7 +24,7 @@ const Post: NextPage = () => {
                 <LogoBrandContainer />
 
                 <PostLoader postId={postId}>
-                    {/* <PostHeaderCard /> */}
+                    <PostHeaderCard />
                     {/* PostBody */}
                 </PostLoader>
             </main>

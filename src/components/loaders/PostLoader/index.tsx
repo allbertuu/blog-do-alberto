@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
-import { PostLoaderProps } from './types';
+import { IPostData, PostLoaderProps } from './types';
 import API from '@services/api';
 
 /**
@@ -13,7 +13,7 @@ const PostLoader: FunctionComponent<PostLoaderProps> = ({
     children,
     postId,
 }) => {
-    const [postData, setPostData] = useState(null);
+    const [postData, setPostData] = useState<IPostData | null>(null);
 
     const getPostData = async () => {
         try {

@@ -50,10 +50,10 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                     </h1>
 
                     <div className="flex gap-2" role={'group'}>
-                        <Link href={user.github_url} title="GitHub">
+                        <Link showIcon href={user.github_url} title="GitHub">
                             GitHub
                         </Link>
-                        <Link href={user.website} title="Website">
+                        <Link showIcon href={user.website} title="Website">
                             Website
                         </Link>
                     </div>

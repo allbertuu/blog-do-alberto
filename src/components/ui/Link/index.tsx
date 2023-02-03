@@ -3,7 +3,17 @@ import { ArrowSquareOut } from 'phosphor-react';
 import { FunctionComponent } from 'react';
 import { ILinkProps } from './types';
 
-const Link: FunctionComponent<ILinkProps> = ({ children, ...props }) => {
+const Link: FunctionComponent<ILinkProps> = ({
+    children,
+    icon,
+    showIcon,
+    iconSide,
+    ...props
+}) => {
+    const iconView = icon || (
+        <ArrowSquareOut size="1.2rem" weight="fill" className="-mt-1" />
+    );
+
     return (
         <a
             {...props}
@@ -20,8 +30,8 @@ const Link: FunctionComponent<ILinkProps> = ({ children, ...props }) => {
                 'after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-red-500 after:transition-all after:block',
             )}
         >
-            {children}{' '}
-            <ArrowSquareOut size="1.2rem" weight="fill" className="-mt-1" />
+            {iconSide === 'left' && showIcon && iconView} {children}{' '}
+            {iconSide !== 'left' && showIcon && iconView}
         </a>
     );
 };

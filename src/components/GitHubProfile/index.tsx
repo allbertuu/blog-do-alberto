@@ -14,6 +14,7 @@ import classNames from '@utils/classNames';
 import GitHubIcon from '@assets/icons/github.svg';
 import { formatNumber } from '@utils/formatNumber';
 import { GitHubInfo } from '@components/ui';
+import GitHubInfoList from '@components/layout/GitHubInfoList';
 
 /**
  * Informações do meu perfil do GitHub
@@ -60,11 +61,8 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                 </div>
                 {/* GitHub Bio */}
                 <p className="text-blue-200 flex-1">{user.bio}</p>
-                {/* GitHub User Infos Container Row */}
-                <div
-                    role={'group'}
-                    className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-blue-100 sm:items-end"
-                >
+
+                <GitHubInfoList className='mt-3 sm:mt-0'>
                     <GitHubInfo
                         icon={
                             <Image
@@ -111,7 +109,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                         }
                         text={`Criado em ${user.created_at}`}
                     />
-                </div>
+                </GitHubInfoList>
             </div>
         </>
     );

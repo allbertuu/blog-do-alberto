@@ -5,13 +5,13 @@ import { GitHubInfoProps } from './types';
  * Renderiza um ícone e um texto (informação do GitHub) em uma linha
  *
  * @param icon Ícone a ser renderizado
- * @param text Texto a ser renderizado
+ * @param info Informação a ser renderizada em texto
  */
-const GitHubInfo: FunctionComponent<GitHubInfoProps> = ({ icon, text }) => {
+const GitHubInfo: FunctionComponent<GitHubInfoProps> = ({ icon, info }) => {
     return (
         <span className="flex items-center gap-2">
             {icon}
-            <p className='leading-none'>{text || 'Sem essa info'}</p>
+            <p className="leading-none">{info || 'Sem essa info'}</p>
         </span>
     );
 };

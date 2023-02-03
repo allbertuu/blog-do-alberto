@@ -62,7 +62,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                 {/* GitHub Bio */}
                 <p className="text-blue-200 flex-1">{user.bio}</p>
 
-                <GitHubInfoList className='mt-3 sm:mt-0'>
+                <GitHubInfoList className="mt-3 sm:mt-0">
                     <GitHubInfo
                         icon={
                             <Image
@@ -74,7 +74,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                                 className="w-[1.125rem]"
                             />
                         }
-                        text={user.github_user || 'Sem dados'}
+                        info={user.github_user || 'Sem dados'}
                     ></GitHubInfo>
 
                     <GitHubInfo
@@ -85,7 +85,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                                 className="text-blue-300"
                             />
                         }
-                        text={user.company || 'Sem dados'}
+                        info={user.company || 'Sem dados'}
                     />
 
                     <GitHubInfo
@@ -96,7 +96,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                                 className="text-blue-300"
                             />
                         }
-                        text={handleFollowersNumber(user.followers)}
+                        info={handleFollowersNumber(user.followers)}
                     />
 
                     <GitHubInfo
@@ -107,7 +107,7 @@ const GitHubProfile: FunctionComponent<GitHubProfileProps> = ({ user }) => {
                                 className="text-blue-300"
                             />
                         }
-                        text={`Criado em ${user.created_at}`}
+                        info={`Criado em ${user.created_at}`}
                     />
                 </GitHubInfoList>
             </div>

@@ -12,7 +12,8 @@ const LoadingMessage: FunctionComponent<LoadingMessageProps> = ({
     message,
     ...props
 }) => {
-    const loadingMessage = message || 'Carregando, aguarde...';
+    const DEFAULT_MESSAGE = 'Carregando, aguarde...';
+    const loadingMessage = message || DEFAULT_MESSAGE;
 
     return (
         <div

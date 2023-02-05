@@ -5,6 +5,7 @@ import BlogBanner from '@components/BlogBanner';
 import PostLoader from '@components/loaders/PostLoader';
 import { useRouter } from 'next/router';
 import PostHeaderCard from '@components/PostHeaderCard';
+import PostBody from '@components/PostBody';
 
 const Post: NextPage = () => {
     const router = useRouter();
@@ -25,7 +26,7 @@ const Post: NextPage = () => {
 
                 <PostLoader postId={postId}>
                     <PostHeaderCard />
-                    {/* PostBody */}
+                    <PostBody />
                 </PostLoader>
             </main>
         </div>

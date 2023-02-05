@@ -18,7 +18,7 @@ const Link: FunctionComponent<ILinkProps> = ({
         <a
             {...props}
             href={props.href || '#'}
-            target="_blank"
+            target={props.target || '_blank'}
             rel="noopener noreferrer"
             className={classNames(
                 props.className || '',

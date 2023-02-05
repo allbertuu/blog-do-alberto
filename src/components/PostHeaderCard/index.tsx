@@ -47,6 +47,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                                 />
                             }
                             onClick={goBack}
+                            target="_self"
                         >
                             Voltar
                         </Link>

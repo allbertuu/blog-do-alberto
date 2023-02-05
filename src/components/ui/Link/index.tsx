@@ -21,6 +21,9 @@ const Link: FunctionComponent<ILinkProps> = ({
             role={'link'}
             className={classNames(
                 props.className || '',
+                // reset styles
+                'no-underline',
+                // styles
                 'uppercase text-sm font-bold text-red-500',
                 'flex gap-2 items-center w-fit',
                 'cursor-pointer',

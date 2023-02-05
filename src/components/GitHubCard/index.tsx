@@ -12,6 +12,7 @@ import GitHubIcon from '@assets/icons/github.svg';
 import { GitHubInfo, LoadingMessage } from '@components/ui';
 import GitHubInfoList from '@components/layout/GitHubInfoList';
 import handleFollowersNumber from '@utils/handleFollowersNumber';
+import GitHubAvatar from '@components/GitHubAvatar';
 
 /**
  * Um card com informações do meu perfil do GitHub
@@ -51,15 +52,7 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
         >
             {user ? (
                 <>
-                    {/* My picture on GitHub */}
-                    <Image
-                        // TODO: inserir uma imagem de fallback
-                        src={avatar_url || ''}
-                        alt="Foto de perfil do GitHub"
-                        className="w-full max-w-[7.8125rem] mx-auto rounded-xl"
-                        width={460}
-                        height={460}
-                    />
+                    <GitHubAvatar imageUrl={avatar_url} />
 
                     <div className="flex-1 flex flex-col gap-2 my-1">
                         {/* GitHub User Name and GitHub Links */}

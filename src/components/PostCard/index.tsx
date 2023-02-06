@@ -23,7 +23,7 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
             <h1 className="text-xl text-blue-50 font-bold">{title}</h1>
             
             <time className="block text-sm text-[#7B96B2] mt-1 mb-4">
-                {created_at}
+                Postado em {created_at}
             </time>
 
             <div className="text-blue-200 text-ellipsis overflow-hidden whitespace-nowrap">

@@ -10,7 +10,7 @@ const PostsSection: FunctionComponent<PostsSectionProps> = ({ ...props }) => {
     const { posts } = usePosts();
 
     return (
-        <section {...props} className="grid grid-cols-1 sm:grid-cols-2">
+        <section {...props} className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {posts.map((post) => (
                 <PostCard key={post.id} post={post} />
             ))}

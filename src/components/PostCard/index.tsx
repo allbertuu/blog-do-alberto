@@ -20,12 +20,11 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
             className="p-8 rounded-xl bg-blue-500 hover:outline hover:outline-red-500 hover:outline-2 cursor-pointer max-h-64"
             onClick={handleOnClick}
         >
-            <div className="flex gap-6 mb-5">
-                <h1 className="text-xl text-blue-50 font-bold">{title}</h1>
-                <time className="text-sm text-[#7B96B2] mt-1">
-                    {created_at}
-                </time>
-            </div>
+            <h1 className="text-xl text-blue-50 font-bold">{title}</h1>
+            
+            <time className="block text-sm text-[#7B96B2] mt-1 mb-4">
+                {created_at}
+            </time>
 
             <div className="text-blue-200 text-ellipsis overflow-hidden whitespace-nowrap">
                 <ReactMarkdown className="[&_*]:inline-flex">

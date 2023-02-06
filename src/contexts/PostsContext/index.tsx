@@ -14,15 +14,17 @@ export function PostsProvider({ children }: IPostsProvider) {
                 params: { q: 'repo:allbertuu/blog-do-alberto' },
             });
             // TODO: usar graphQL para filtrar os dados
-            const filteredPosts = res.data.items.map((post: any) => {
-                return {
-                    id: post.id,
-                    title: post.title,
-                    body: post.body,
-                    created_at: formatDate(post.created_at),
-                    number: post.number,
-                };
-            });
+            const filteredPosts = res.data.items
+                .filter((item: any) => !Object.hasOwn(item, 'pull_request'))
+                .map((post: any) => {
+                    return {
+                        id: post.id,
+                        title: post.title,
+                        body: post.body,
+                        created_at: formatDate(post.created_at),
+                        number: post.number,
+                    };
+                });
             setPosts(filteredPosts);
         } catch (error: any) {
             throw new Error(error);

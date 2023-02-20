@@ -1,34 +1,30 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { IPostData, PostLoaderProps } from './types';
 import API from '@services/api';
 
 /**
  * Carrega os dados de um post específico (GitHub Issues).
  *
- * Utiliza "Container component pattern".
- *
  * @param postId Número do post (issue) no GitHub
  */
-const PostLoader: FunctionComponent<PostLoaderProps> = ({
+const PostLoader: FC<PostLoaderProps> = ({
     children,
     postId,
 }) => {
     const [postData, setPostData] = useState<IPostData | null>(null);
 
-    const getPostData = async () => {
-        try {
-            const res = await API.get(
-                `/repos/allbertuu/blog-do-alberto/issues/${postId}`,
-            );
-            setPostData(res.data);
-        } catch (error: any) {
-            throw new Error(error);
-        }
-    };
-
     useEffect(() => {
-        getPostData();
-    }, []);
+      const fetchPostData = async () => {
+        try {
+          const response = await API.get(`/repos/allbertuu/blog-do-alberto/issues/${postId}`);
+          setPostData(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      fetchPostData();
+    }, [postId]);
 
     return (
         <>

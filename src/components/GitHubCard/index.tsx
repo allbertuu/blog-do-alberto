@@ -39,7 +39,7 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
 
     const FOLLOWERS_NUMBER_TEXT = handleFollowersNumber(followers);
     const CREATED_AT_TEXT = created_at
-        ? `Criado em ${created_at}`
+        ? `GitHub criado em ${created_at}`
         : handleInfoDisplayed(created_at);
 
     return (

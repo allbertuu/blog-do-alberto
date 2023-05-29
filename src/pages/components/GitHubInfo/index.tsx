@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { GitHubInfoProps } from './types';
 
 /**
- * Renderiza um ícone e um texto (informação do GitHub) em uma linha
+ * Renderiza um ícone e um texto (informação do GitHub)
  *
  * @param icon Ícone a ser renderizado
  * @param info Informação a ser renderizada em texto

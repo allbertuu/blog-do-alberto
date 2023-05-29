@@ -1,8 +1,8 @@
-import { LoadingMessage } from '@components/ui';
+import { LoadingMessage } from '@components/index';
 import classNames from '@utils/classNames';
 import { FunctionComponent } from 'react';
 import { PostBodyProps } from './types';
-import ReactMarkdown from '@components/lib/ReactMarkdown';
+import { ReactMarkdown } from '@components/lib/index';
 
 /**
  * Corpo do post completo (issue do GitHub)

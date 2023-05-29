@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Tooltip from '@components/Tooltip';
+import { Tooltip } from '@components/index';
 import { FunctionComponent } from 'react';
 import { GitHubAvatarProps } from './types';
 import { useRouter } from 'next/router';

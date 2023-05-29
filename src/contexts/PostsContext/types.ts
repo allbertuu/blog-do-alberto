@@ -1,4 +1,13 @@
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
+
+export interface IPost {
+    id: number;
+    number: number;
+    title: string;
+    body: string;
+    createdAt: string;
+}
+
 /** Tipo da resposta da API  */
 export type TAPIPosts = IPost[] | [];
 
@@ -8,15 +17,7 @@ export interface IPostsProvider {
 
 export interface IPostsContext {
     posts: TAPIPosts;
-    setPosts: React.Dispatch<React.SetStateAction<TAPIPosts>>;
+    setPosts: Dispatch<SetStateAction<TAPIPosts>>;
     totalPosts: number;
     getPosts(): Promise<void>;
-}
-
-export interface IPost {
-    id: number;
-    number: number;
-    title: string;
-    body: string;
-    created_at: string;
 }

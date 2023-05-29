@@ -1,4 +1,4 @@
-import { GitHubInfo, Link, LoadingMessage } from '@components/ui';
+import { Link, LoadingMessage } from '@components/index';
 import Image from 'next/image';
 import classNames from '@utils/classNames';
 import { useRouter } from 'next/router';
@@ -10,7 +10,8 @@ import {
 import { FunctionComponent } from 'react';
 import { PostHeaderCardProps } from './types';
 import GitHubIcon from '@assets/icons/github.svg';
-import GitHubInfoList from '@components/layout/GitHubInfoList';
+import GitHubInfoList from 'pages/components/layout/GitHubInfoList';
+import GitHubInfo from 'pages/components/GitHubInfo';
 import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 
 /**

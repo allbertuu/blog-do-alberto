@@ -1,12 +1,12 @@
-import BlogBanner from '@components/BlogBanner';
-import GitHubCard from '@components/GitHubCard';
-import GitHubUserLoader from '@components/loaders/GitHubUserLoader';
-import LogoBrandContainer from '@components/LogoBrandContainer';
-import PostsSection from '@components/PostsSection';
-import SearchInput from '@components/SearchInput';
-import TotalPosts from '@components/TotalPosts';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import GitHubCard from './components/GitHubCard';
+import GitHubUserLoader from './components/GitHubUserLoader';
+import LogoBrandContainer from './components/LogoBrandContainer';
+import PostsSection from './posts/components/PostsSection';
+import SearchInput from './components/SearchInput';
+import TotalPosts from './components/TotalPosts';
+import BlogBanner from './components/BlogBanner';
 
 const Home: NextPage = () => {
     return (
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
                 <GitHubUserLoader>
                     <GitHubCard />
                 </GitHubUserLoader>
-                
+
                 {/* Header Posts List */}
                 <div className="flex justify-between flex-1 font-bold mt-16 mb-2">
                     <h1 className="text-blue-100 text-2xl">Publicações</h1>

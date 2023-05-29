@@ -1,7 +1,6 @@
-import usePosts from '@hooks/usePosts';
 import API from '@services/api';
 import classNames from '@utils/classNames';
-import useDebounce from '@hooks/useDebounce';
+import { useDebounce, usePosts } from '@hooks/index';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { SearchInputProps } from './types';
 
@@ -11,7 +10,7 @@ import { SearchInputProps } from './types';
 const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     const [inputValue, setInputValue] = useState<string>('');
     const { setPosts, getPosts } = usePosts();
-    const DEBOUNCE_TIME_IN_MILLISECONDS = 500;
+    const DEBOUNCE_TIME_IN_MILLISECONDS = 1000;
 
     const getFilteredPosts = async () => {
         try {
@@ -32,10 +31,13 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     );
 
     useEffect(() => {
-        // se o input estiver vazio, retorna todos os posts, senão, filtra
-        // obs.: o trim() é para remover espaços em branco no início e no fim
-        inputValue.trim() ? debouncedCallback() : getPosts();
-    }, [inputValue]);
+        if (inputValue) {
+            debouncedCallback();
+            return;
+        }
+
+        getPosts();
+    }, [debouncedCallback, getPosts, inputValue]);
 
     return (
         <input

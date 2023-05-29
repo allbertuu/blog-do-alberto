@@ -1,18 +1,18 @@
-import Link from '@components/ui/Link';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
 import {
     Buildings as BuildingsIcon,
-    Cake as CakeIcon,
+    // Cake as CakeIcon,
     Users as UsersIcon,
 } from 'phosphor-react';
 import { GitHubCardProps } from './types';
 import classNames from '@utils/classNames';
 import GitHubIcon from '@assets/icons/github.svg';
-import { GitHubInfo, LoadingMessage } from '@components/ui';
-import GitHubInfoList from '@components/layout/GitHubInfoList';
 import handleFollowersNumber from '@utils/handleFollowersNumber';
-import GitHubAvatar from '@components/GitHubAvatar';
+import { LoadingMessage, Link } from '@components/index';
+import GitHubAvatar from '../GitHubAvatar';
+import GitHubInfo from '../GitHubInfo';
+import GitHubInfoList from '../layout/GitHubInfoList';
 
 /**
  * Um card com informações do meu perfil do GitHub

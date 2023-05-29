@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import LogoBrandContainer from '@components/LogoBrandContainer';
-import BlogBanner from '@components/BlogBanner';
-import PostLoader from '@components/loaders/PostLoader';
+import LogoBrandContainer from 'pages/components/LogoBrandContainer';
+import BlogBanner from 'pages/components/BlogBanner';
+import PostLoader from 'pages/posts/components/PostLoader';
 import { useRouter } from 'next/router';
-import PostHeaderCard from '@components/PostHeaderCard';
-import PostBody from '@components/PostBody';
+import PostHeaderCard from 'pages/posts/components/PostHeaderCard';
+import PostBody from 'pages/posts/components/PostBody';
 
 const Post: NextPage = () => {
     const router = useRouter();

@@ -2,13 +2,14 @@ import ReactMarkdown from '@components/lib/ReactMarkdown';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { PostCardProps } from './types';
+import formatDate from '@utils/formatDate';
 
 /**
  * Renderiza um card com informações sobre 1 post (GitHub Issues)
  */
 const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
     const router = useRouter();
-    const { created_at, body, title, number } = post;
+    const { createdAt, body, title, number } = post;
 
     const handleOnClick = () => {
         router.push(`/posts/${number}`);
@@ -21,9 +22,9 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
             onClick={handleOnClick}
         >
             <h1 className="text-xl text-blue-50 font-bold">{title}</h1>
-            
+
             <time className="block text-sm text-[#7B96B2] mt-1 mb-4">
-                Postado em {created_at}
+                Postado em {formatDate(createdAt)}
             </time>
 
             <div className="text-blue-200 text-ellipsis overflow-hidden whitespace-nowrap">

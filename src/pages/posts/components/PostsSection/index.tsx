@@ -1,5 +1,5 @@
-import PostCard from '@components/PostCard';
-import usePosts from '@hooks/usePosts';
+import PostCard from 'pages/posts/components/PostCard';
+import { usePosts } from '@hooks/index';
 import { FunctionComponent } from 'react';
 import { PostsSectionProps } from './types';
 

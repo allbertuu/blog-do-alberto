@@ -17,15 +17,15 @@ const GitHubUserLoader: FunctionComponent<GitHubUserLoaderProps> = ({
         try {
             const res = await API.get('users/allbertuu');
             setUser({
-                avatar_url: res.data.avatar_url,
+                avatarUrl: res.data.avatar_url,
                 bio: res.data.bio,
                 company: res.data.company,
                 followers: res.data.followers,
-                github_url: res.data.html_url,
-                github_user: res.data.login,
+                githubUrl: res.data.html_url,
+                githubUser: res.data.login,
                 location: res.data.location,
                 name: res.data.name,
-                created_at: format(new Date(res.data.created_at), 'MM/yyyy'),
+                createdAt: format(new Date(res.data.created_at), 'MM/yyyy'),
                 website: res.data.blog,
             });
         } catch (error: any) {

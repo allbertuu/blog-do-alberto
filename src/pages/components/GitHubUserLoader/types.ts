@@ -13,6 +13,6 @@ export interface IGitHubUserData {
     followers: number;
     bio: string;
     name: string;
-    created_at: string;
+    createdAt: string;
     website: string;
 }

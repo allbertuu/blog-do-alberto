@@ -8,10 +8,9 @@
 
 # blog-do-alberto
 🔥 Meu Blog, integrado ao `GitHub API`, transformando as issues desse repo, em posts incríveis ⭐.  
-> Feito com amor, e NextJS.
+> Feito com ❤, e NextJS.
 
 ## Rodando localmente ▶
-
 > Nesse projeto é usado apenas o Yarn como gerenciador de pacotes. Veja o website oficial do Yarn [aqui](https://yarnpkg.com/).
 
 Clone o projeto
@@ -39,7 +38,6 @@ Rode o servidor
 ```
 
 ## Stack utilizada ⚙
-
 - Next.js
 - React
 - TypeScript
@@ -50,17 +48,10 @@ Rode o servidor
 - phosphor-react
 - date-fns
 
-
 ## Funcionalidades ⚡
-- Me conhecer :)
-- Ter acesso a links atualizados das minhas redes
+- Ter acesso a informações minhas em tempo real.
+- Ter acesso a links atualizados das minhas redes.
 - Consumir conteúdo que eu postar, em um único local, através de posts formatados em Markdown.
 
-## Design Patterns do React, usados:
-- Layout (style)
-- Container component (fetch data) 
-
-
 ## Feedback 💬
-
 Se você tiver algum feedback, me manda uma mensagem no [LinkedIn](https://www.linkedin.com/in/albertov-albuquerque/) 😉

@@ -5,9 +5,9 @@ export interface GitHubUserLoaderProps {
 }
 
 export interface IGitHubUserData {
-    github_user: string;
-    github_url: string;
-    avatar_url: string;
+    githubUser: string;
+    githubUrl: string;
+    avatarUrl: string;
     company: string;
     location: string;
     followers: number;

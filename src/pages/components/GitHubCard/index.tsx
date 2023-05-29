@@ -19,14 +19,12 @@ import GitHubInfoList from '../layout/GitHubInfoList';
  */
 const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
     const {
-        avatar_url,
+        avatarUrl,
         bio,
         company,
-        created_at,
         followers,
-        github_url,
-        github_user,
-        location,
+        githubUrl,
+        githubUser,
         name,
         website,
     } = user || {};
@@ -52,20 +50,21 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
         >
             {user ? (
                 <>
-                    <GitHubAvatar imageUrl={avatar_url} />
+                    <GitHubAvatar imageUrl={avatarUrl} />
 
                     <div className="flex-1 flex flex-col gap-2 my-1">
                         {/* GitHub User Name and GitHub Links */}
                         <div
                             className="flex items-center justify-between flex-wrap"
                             role={'heading'}
+                            aria-level={1}
                         >
                             <h1 className="text-2xl font-bold text-blue-50">
                                 {handleInfoDisplayed(name)}
                             </h1>
 
                             <div className="flex gap-2" role={'group'}>
-                                <Link showIcon href={github_url} title="GitHub">
+                                <Link showIcon href={githubUrl} title="GitHub">
                                     GitHub
                                 </Link>
                                 <Link showIcon href={website} title="Website">
@@ -88,7 +87,7 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
                                         className="w-[1.125rem]"
                                     />
                                 }
-                                info={handleInfoDisplayed(github_user)}
+                                info={handleInfoDisplayed(githubUser)}
                             />
 
                             <GitHubInfo

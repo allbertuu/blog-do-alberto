@@ -8,9 +8,10 @@ const ReactMarkdown = ({ children, ...props }: ReactMarkdownProps) => {
         <LIBReactMarkdown
             {...props}
             className={classNames(props.className || '')}
-            children={children}
             remarkPlugins={[remarkGfm]}
-        />
+        >
+            {children}
+        </LIBReactMarkdown>
     );
 };
 

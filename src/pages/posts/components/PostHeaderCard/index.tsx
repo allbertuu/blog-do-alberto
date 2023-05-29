@@ -21,7 +21,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
     postData,
 }) => {
     const router = useRouter();
-    const { html_url, title, comments, created_at, user } = postData || {};
+    const { htmlUrl, title, comments, createdAt, user } = postData || {};
     /**
      * Retorna para a página anterior na history do navegador.
      */
@@ -53,7 +53,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                             Voltar
                         </Link>
 
-                        <Link showIcon href={html_url}>
+                        <Link showIcon href={htmlUrl}>
                             Ver no GitHub
                         </Link>
                     </div>
@@ -78,7 +78,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                         />
 
                         <GitHubInfo
-                            info={formatDateFromDateToNow(created_at)}
+                            info={formatDateFromDateToNow(createdAt)}
                             icon={
                                 <CalendarIcon
                                     size={'1.2rem'}

@@ -11,7 +11,7 @@ export interface IPostData {
     user: {
         login: string;
     };
-    html_url: string;
-    created_at: string;
+    htmlUrl: string;
+    createdAt: string;
     comments: number;
 }

@@ -38,9 +38,9 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
         info ? String(info) : 'Sem informação';
 
     const FOLLOWERS_NUMBER_TEXT = handleFollowersNumber(followers);
-    const CREATED_AT_TEXT = created_at
-        ? `GitHub criado em ${created_at}`
-        : handleInfoDisplayed(created_at);
+    // const CREATED_AT_TEXT = created_at
+    //     ? `GitHub criado em ${created_at}`
+    //     : handleInfoDisplayed(created_at);
 
     return (
         <div
@@ -113,7 +113,7 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
                                 info={FOLLOWERS_NUMBER_TEXT}
                             />
 
-                            <GitHubInfo
+                            {/* <GitHubInfo
                                 icon={
                                     <CakeIcon
                                         size={'1.125rem'}
@@ -122,7 +122,7 @@ const GitHubCard: FunctionComponent<GitHubCardProps> = ({ user }) => {
                                     />
                                 }
                                 info={CREATED_AT_TEXT}
-                            />
+                            /> */}
                         </GitHubInfoList>
                     </div>
                 </>

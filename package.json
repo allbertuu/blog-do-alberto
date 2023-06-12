@@ -19,6 +19,7 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.5",
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",

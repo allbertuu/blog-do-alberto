@@ -1,12 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import GitHubCard from './components/GitHubCard';
-import GitHubUserLoader from './components/GitHubUserLoader';
-import LogoBrandContainer from './components/LogoBrandContainer';
-import PostsSection from './posts/components/PostsSection';
-import SearchInput from './components/SearchInput';
-import TotalPosts from './components/TotalPosts';
-import BlogBanner from './components/BlogBanner';
+import { GitHubCard, GitHubUserLoader } from '@components/github';
+import {
+    LogoBrandContainer,
+    SearchInput,
+    TotalPosts,
+    BlogBanner,
+} from '@components/index';
+import { PostsSection } from '@components/post';
 
 const Home: NextPage = () => {
     return (
@@ -27,8 +28,8 @@ const Home: NextPage = () => {
                 </GitHubUserLoader>
 
                 {/* Header Posts List */}
-                <div className="flex justify-between flex-1 font-bold mt-16 mb-2">
-                    <h1 className="text-blue-100 text-2xl">Publicações</h1>
+                <div className="mt-16 mb-2 flex flex-1 justify-between font-bold">
+                    <h1 className="text-2xl text-blue-100">Publicações</h1>
                     <TotalPosts />
                 </div>
 

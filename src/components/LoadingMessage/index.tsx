@@ -19,11 +19,11 @@ const LoadingMessage: FunctionComponent<LoadingMessageProps> = ({
         <div
             className={classNames(
                 props.className || '',
-                'w-fit mx-auto flex flex-col gap-2 items-center',
+                'mx-auto flex w-fit flex-col items-center gap-2',
             )}
         >
             <p className="text-lg">{loadingMessage}</p>
-            <SpinnerGapIcon size="1.8rem" className="text-white animate-spin" />
+            <SpinnerGapIcon size="1.8rem" className="animate-spin text-white" />
         </div>
     );
 };

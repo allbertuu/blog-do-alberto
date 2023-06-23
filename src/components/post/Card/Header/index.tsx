@@ -21,7 +21,13 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
     postData,
 }) => {
     const router = useRouter();
-    const { htmlUrl, title, comments, createdAt, user } = postData || {};
+    const {
+        html_url: htmlUrl,
+        title,
+        comments,
+        created_at: createdAt,
+        user,
+    } = postData || {};
     /**
      * Retorna para a página anterior na history do navegador.
      */

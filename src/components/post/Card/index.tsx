@@ -2,7 +2,7 @@ import ReactMarkdown from '@components/lib/ReactMarkdown';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { PostCardProps } from './types';
-import formatDate from '@utils/formatDate';
+import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 
 /**
  * Renderiza um card com informações sobre 1 post (GitHub Issues)
@@ -24,7 +24,7 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
             <h1 className="text-xl font-bold text-blue-50">{title}</h1>
 
             <time className="mt-1 mb-4 block text-sm text-[#7B96B2]">
-                Postado em {formatDate(createdAt)}
+                Postado {formatDateFromDateToNow(createdAt)}
             </time>
 
             <div className="overflow-hidden text-ellipsis whitespace-nowrap text-blue-200">

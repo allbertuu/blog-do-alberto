@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-    ul {
-        list-style: initial;
-        margin: 1rem 0;
-        padding-left: 2rem;
-    }
-
     body {
         color: #ffffffe5;
     }

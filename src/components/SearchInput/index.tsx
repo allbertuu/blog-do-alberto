@@ -38,6 +38,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     return (
         <input
             {...props}
+            type="text"
             placeholder="Buscar conteúdo"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}

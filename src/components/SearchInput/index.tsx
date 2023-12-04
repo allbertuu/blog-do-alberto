@@ -33,7 +33,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
         if (inputValue !== '') {
             debouncedCallback();
         }
-    }, [debouncedCallback, inputValue]);
+    }, [inputValue]);
 
     return (
         <input

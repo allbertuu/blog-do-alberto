@@ -41,4 +41,4 @@ package-lock.json
 *.json
 *.config.js
 *.config.ts
-
+*.md

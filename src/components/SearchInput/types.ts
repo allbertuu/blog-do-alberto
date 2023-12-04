@@ -1,3 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from 'react';
 
-export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface SearchInputProps
+  extends InputHTMLAttributes<HTMLInputElement> {}

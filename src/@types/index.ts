@@ -2,7 +2,7 @@ export type Post = {
   title: string;
   body: string;
   user: {
-      login: string;
+    login: string;
   };
   html_url: string;
   created_at: string;

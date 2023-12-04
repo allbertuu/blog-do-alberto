@@ -13,23 +13,23 @@ import { TooltipProps } from './types';
  * @returns O componente Tooltip
  */
 const Tooltip: React.FC<TooltipProps> = ({ content, secondary, children }) => {
-    return (
-        <RTooltip.Root>
-            <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
-            <RTooltip.Portal>
-                <RTooltip.Content
-                    sideOffset={5}
-                    className={classNames(
-                        secondary ? 'bg-blue-800' : 'bg-red-500/90',
-                        'rounded px-2 py-1 font-semibold text-white',
-                    )}
-                >
-                    <p className="text-xs">{content || 'Sem informação'}</p>
-                    <RTooltip.Arrow height={3} className="fill-white" />
-                </RTooltip.Content>
-            </RTooltip.Portal>
-        </RTooltip.Root>
-    );
+  return (
+    <RTooltip.Root>
+      <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
+      <RTooltip.Portal>
+        <RTooltip.Content
+          sideOffset={5}
+          className={classNames(
+            secondary ? 'bg-blue-800' : 'bg-red-500/90',
+            'rounded px-2 py-1 font-semibold text-white'
+          )}
+        >
+          <p className="text-xs">{content || 'Sem informação'}</p>
+          <RTooltip.Arrow height={3} className="fill-white" />
+        </RTooltip.Content>
+      </RTooltip.Portal>
+    </RTooltip.Root>
+  );
 };
 
 export default Tooltip;

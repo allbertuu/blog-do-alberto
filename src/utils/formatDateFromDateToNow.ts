@@ -8,11 +8,11 @@ import { pt } from 'date-fns/locale';
  * @returns Data formatada
  */
 const formatDateFromDateToNow = (date?: number | Date | string) =>
-    date
-        ? formatDistanceToNow(new Date(date), {
-              locale: pt,
-              addSuffix: true,
-          })
-        : 'Sem data';
+  date
+    ? formatDistanceToNow(new Date(date), {
+        locale: pt,
+        addSuffix: true,
+      })
+    : 'Sem data';
 
 export default formatDateFromDateToNow;

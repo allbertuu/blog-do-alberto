@@ -6,28 +6,28 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-    return (
-        <>
-            <ToastContainer
-                position="top-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+  return (
+    <>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
-            <PostsProvider>
-                <RTooltip.Provider delayDuration={50}>
-                    <Component {...pageProps} />
-                </RTooltip.Provider>
-            </PostsProvider>
-        </>
-    );
+      <PostsProvider>
+        <RTooltip.Provider delayDuration={50}>
+          <Component {...pageProps} />
+        </RTooltip.Provider>
+      </PostsProvider>
+    </>
+  );
 }
 
 export default MyApp;

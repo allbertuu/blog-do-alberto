@@ -6,11 +6,11 @@ import { useCallback, useRef } from 'react';
  * @param delay - delay in ms
  */
 const useDebounce = (fn: () => any, delay?: number) => {
-    const timer: any = useRef(null);
-    return useCallback(() => {
-        clearTimeout(timer.current);
-        timer.current = setTimeout(fn, delay);
-    }, [delay, fn]);
+  const timer: any = useRef(null);
+  return useCallback(() => {
+    clearTimeout(timer.current);
+    timer.current = setTimeout(fn, delay);
+  }, [delay, fn]);
 };
 
 export default useDebounce;

@@ -1,3 +1,3 @@
-import { ReactMarkdownOptions } from "react-markdown/lib/react-markdown";
+import { ReactMarkdownOptions } from 'react-markdown/lib/react-markdown';
 
-export type MarkdownProps = ReactMarkdownOptions
+export type MarkdownProps = ReactMarkdownOptions;

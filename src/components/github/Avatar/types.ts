@@ -1,3 +1,3 @@
 export interface AvatarProps {
-    imageUrl?: string;
+  imageUrl?: string;
 }

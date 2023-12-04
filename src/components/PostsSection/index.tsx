@@ -8,15 +8,15 @@ export interface PostsSectionProps extends React.HTMLAttributes<HTMLElement> {}
  * Renderiza a lista de posts/publicações (GitHub Issues)
  */
 export const PostsSection: FunctionComponent<PostsSectionProps> = ({
-    ...props
+  ...props
 }) => {
-    const { posts } = usePosts();
+  const { posts } = usePosts();
 
-    return (
-        <section {...props} className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {posts.map((post) => (
-                <PostLink key={post.id} post={post} />
-            ))}
-        </section>
-    );
+  return (
+    <section {...props} className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      {posts.map((post) => (
+        <PostLink key={post.id} post={post} />
+      ))}
+    </section>
+  );
 };

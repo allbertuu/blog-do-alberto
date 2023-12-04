@@ -1,6 +1,7 @@
 import { useDebounce, usePosts } from '@hooks/index';
 import API from '@services/api';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import { SearchInputProps } from './types';
 
 /**
@@ -18,9 +19,18 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
                     q: `${inputValue} repo:allbertuu/blog-do-alberto`,
                 },
             });
+            if (res.data.total_count === 0) {
+                toast.warn(
+                    'Vish! O Alberto tá preguiçoso, ainda não fez esse post.',
+                );
+                setPosts([]);
+                return;
+            }
+
+            toast.success('Boaaa! Achei aqui! 🎉', {autoClose: 1500})
             setPosts(res.data.items);
-        } catch (error) {
-            console.error(error);
+        } catch (error: any) {
+            toast.error(error.message);
         }
     };
 

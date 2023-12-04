@@ -1,10 +1,9 @@
 import { usePosts } from '@hooks/index';
-import { FunctionComponent } from 'react';
 
 /**
  * Renderiza o total de posts/publicações (GitHub Issues), formatado em texto
  */
-const TotalPosts: FunctionComponent = () => {
+const TotalPosts: React.FC = () => {
     const { totalPosts } = usePosts();
 
     return (

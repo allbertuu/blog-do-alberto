@@ -1,46 +1,61 @@
+import GitHubIcon from '@assets/icons/github.svg';
+import { GitHubInfo, GitHubInfoList } from '@components/github';
 import { LoadingMessage } from '@components/index';
 import { Link } from '@components/ui/index';
+import API from '@services/api';
+import { Post } from '@types';
+import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 import Image from 'next/image';
-import classNames from '@utils/classNames';
 import { useRouter } from 'next/router';
 import {
     Calendar as CalendarIcon,
     CaretLeft as CaretLeftIcon,
     ChatCircleDots as ChatCircleDotsIcon,
 } from 'phosphor-react';
-import { FunctionComponent } from 'react';
-import { PostHeaderCardProps } from './types';
-import GitHubIcon from '@assets/icons/github.svg';
-import { GitHubInfoList, GitHubInfo } from '@components/github';
-import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 /**
  * Cabeçalho do post completo (issue do GitHub)
  */
-const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
-    postData,
-}) => {
+export const PostHeader: React.FC = () => {
+    const [post, setPost] = useState<Post | null>(null);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
-    const {
-        html_url: htmlUrl,
-        title,
-        comments,
-        created_at: createdAt,
-        user,
-    } = postData || {};
+    const { postId } = router.query;
+
+    useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const res = await API.get(
+                    `/repos/allbertuu/blog-do-alberto/issues/${postId}`,
+                );
+                setPost(res.data);
+            } catch (error: any) {
+                toast.error(
+                    <>
+                        Algo deu errado. Não deu pra pegar o post de nº {postId}{' '}
+                        😞
+                        <br />
+                        <small>{error.message}</small>
+                    </>,
+                );
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (postId) fetchPost();
+    }, [postId]);
+
     /**
      * Retorna para a página anterior na history do navegador.
      */
     const goBack = () => router.back();
 
     return (
-        <div
-            className={classNames(
-                'rounded-xl bg-blue-600 py-8 px-6 shadow-lg shadow-black/20 sm:px-10',
-                'text-blue-50',
-            )}
-        >
-            {postData ? (
+        <div className="rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
+            {post && (
                 <>
                     <div className="flex justify-between">
                         <Link
@@ -50,7 +65,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                                 <CaretLeftIcon
                                     size="1.2rem"
                                     weight="fill"
-                                    className="-mt-1 -mr-1"
+                                    className="-mr-1 -mt-1"
                                 />
                             }
                             onClick={goBack}
@@ -59,18 +74,18 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                             Voltar
                         </Link>
 
-                        <Link showIcon href={htmlUrl}>
-                            Ver no GitHub
+                        <Link showIcon href={post.html_url}>
+                            Comente ou reaja aqui 👍
                         </Link>
                     </div>
 
-                    <h1 className="mt-5 mb-2 text-xl font-bold sm:text-2xl">
-                        {title}
+                    <h1 className="mb-2 mt-5 text-xl font-bold sm:text-2xl">
+                        {post.title}
                     </h1>
 
                     <GitHubInfoList className="mt-4">
                         <GitHubInfo
-                            info={user?.login}
+                            info="allbertuu"
                             icon={
                                 <Image
                                     src={GitHubIcon}
@@ -84,7 +99,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                         />
 
                         <GitHubInfo
-                            info={formatDateFromDateToNow(createdAt)}
+                            info={formatDateFromDateToNow(post.created_at)}
                             icon={
                                 <CalendarIcon
                                     size={'1.2rem'}
@@ -95,7 +110,7 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                         />
 
                         <GitHubInfo
-                            info={`${comments} comentários`}
+                            info={`${post.comments} comentários`}
                             icon={
                                 <ChatCircleDotsIcon
                                     size={'1.2rem'}
@@ -106,11 +121,10 @@ const PostHeaderCard: FunctionComponent<PostHeaderCardProps> = ({
                         />
                     </GitHubInfoList>
                 </>
-            ) : (
+            )}
+            {loading && (
                 <LoadingMessage message="Buscando informações do post..." />
             )}
         </div>
     );
 };
-
-export default PostHeaderCard;

@@ -1,11 +1,15 @@
+import { IPost } from '@contexts/PostsContext/types';
 import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 import { useRouter } from 'next/router';
-import { PostCardProps } from './types';
+
+export interface PostLinkProps {
+    post: IPost;
+}
 
 /**
  * Renderiza um card com informações sobre 1 post (GitHub Issues)
  */
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
     const router = useRouter();
     const { createdAt, body, title, number } = post;
 
@@ -31,5 +35,3 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         </div>
     );
 };
-
-export default PostCard;

@@ -1,15 +1,14 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { GitHubCard, GitHubUserLoader } from '@components/github';
+import { GitHubCard } from '@components/github';
 import {
+    BlogBanner,
     LogoBrandContainer,
     SearchInput,
     TotalPosts,
-    BlogBanner,
 } from '@components/index';
-import { PostsSection } from '@components/post';
+import { PostsSection } from '@components/PostsSection';
+import Head from 'next/head';
 
-const Home: NextPage = () => {
+const Home = () => {
     return (
         <div>
             <Head>
@@ -23,13 +22,12 @@ const Home: NextPage = () => {
             <main className="mx-auto w-full max-w-4xl px-6 pb-40">
                 <LogoBrandContainer />
 
-                <GitHubUserLoader>
-                    <GitHubCard />
-                </GitHubUserLoader>
+                <GitHubCard />
 
                 {/* Header Posts List */}
-                <div className="mt-16 mb-2 flex flex-1 justify-between font-bold">
+                <div className="mb-2 mt-16 flex flex-1 justify-between font-bold">
                     <h1 className="text-2xl text-blue-100">Publicações</h1>
+
                     <TotalPosts />
                 </div>
 

@@ -1,6 +1,5 @@
 import * as RTooltip from '@radix-ui/react-tooltip';
 import classNames from '@utils/classNames';
-import { FunctionComponent } from 'react';
 import { TooltipProps } from './types';
 
 /**
@@ -13,11 +12,7 @@ import { TooltipProps } from './types';
  * @param children O elemento que será o trigger do tooltip
  * @returns O componente Tooltip
  */
-const Tooltip: FunctionComponent<TooltipProps> = ({
-    content,
-    secondary,
-    children,
-}) => {
+const Tooltip: React.FC<TooltipProps> = ({ content, secondary, children }) => {
     return (
         <RTooltip.Root>
             <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
@@ -26,7 +21,7 @@ const Tooltip: FunctionComponent<TooltipProps> = ({
                     sideOffset={5}
                     className={classNames(
                         secondary ? 'bg-blue-800' : 'bg-red-500/90',
-                        'rounded py-1 px-2 font-semibold text-white',
+                        'rounded px-2 py-1 font-semibold text-white',
                     )}
                 >
                     <p className="text-xs">{content || 'Sem informação'}</p>

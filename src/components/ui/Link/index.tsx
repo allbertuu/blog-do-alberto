@@ -1,9 +1,8 @@
 import classNames from '@utils/classNames';
 import { ArrowSquareOut } from 'phosphor-react';
-import { FunctionComponent } from 'react';
 import { ILinkProps } from './types';
 
-const Link: FunctionComponent<ILinkProps> = ({
+const Link: React.FC<ILinkProps> = ({
     children,
     icon,
     showIcon,
@@ -31,7 +30,7 @@ const Link: FunctionComponent<ILinkProps> = ({
                 'hover:opacity-75',
                 // animação underline
                 'relative transition-all duration-300 ease-in-out [&:after]:hover:w-full',
-                'after:absolute after:left-0 after:-bottom-1 after:block after:h-[1px] after:w-0 after:bg-red-500 after:transition-all',
+                'after:absolute after:-bottom-1 after:left-0 after:block after:h-[1px] after:w-0 after:bg-red-500 after:transition-all',
             )}
         >
             {iconSide === 'left' && showIcon && iconView} {children}{' '}

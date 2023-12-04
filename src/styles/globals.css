@@ -6,26 +6,32 @@
     body {
         color: #ffffffe5;
     }
-}
 
-body::-webkit-scrollbar {
-    @apply w-2;
-}
-body::-webkit-scrollbar-track {
-    @apply bg-blue-500;
-}
-body::-webkit-scrollbar-thumb {
-    @apply border-[0.25rem] border-blue-500 bg-red-500/90;
-}
+    body::-webkit-scrollbar {
+        @apply w-2;
+    }
+    body::-webkit-scrollbar-track {
+        @apply bg-blue-500;
+    }
+    body::-webkit-scrollbar-thumb {
+        @apply border-[0.25rem] border-blue-500 bg-red-500/90;
+    }
 
-@media (max-width: 360px) {
-    html {
-        font-size: 80%;
+    @media (max-width: 360px) {
+        html {
+            font-size: 80%;
+        }
+    }
+
+    @media (min-width: 1220px) {
+        html {
+            font-size: 105%;
+        }
     }
 }
 
-@media (min-width: 1220px) {
-    html {
-        font-size: 105%;
+@layer base {
+    input {
+        @apply rounded-md border border-blue-400 bg-blue-800 px-4 py-3 text-blue-200 outline-none placeholder:text-blue-300 focus:border-red-500;
     }
 }

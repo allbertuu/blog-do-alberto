@@ -11,7 +11,7 @@ const PostBody: React.FC<PostBodyProps> = ({ postData }) => {
     return (
         <div className="py-8 sm:px-10">
             {postData && (
-                <Markdown className="prose prose-invert">
+                <Markdown className="prose prose-invert max-w-full">
                     {postData.body || DEFAULT_BODY}
                 </Markdown>
             )}

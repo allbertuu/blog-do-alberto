@@ -11,6 +11,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     const [inputValue, setInputValue] = useState<string>('');
     const { setPosts } = usePosts();
     const DEBOUNCE_TIME_IN_MILLISECONDS = 1000;
+    const inputElement = useRef<HTMLInputElement>(null);
 
     const getFilteredPosts = async () => {
         try {
@@ -27,7 +28,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
                 return;
             }
 
-            toast.success('Boaaa! Achei aqui! 🎉', {autoClose: 1500})
+            toast.success('Boaaa! Achei aqui! 🎉', { autoClose: 1500 });
             setPosts(res.data.items);
         } catch (error: any) {
             toast.error(error.message);
@@ -45,6 +46,15 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
         }
     }, [inputValue]);
 
+    // That's a way to autoFocus that respect React way of doing things
+    // https://blog.maisie.ink/react-ref-autofocus/#time-for-react
+    // https://github.com/facebook/react/issues/11851#issuecomment-351672131
+    useEffect(() => {
+        if (inputElement.current) {
+            inputElement.current.focus();
+        }
+    }, []);
+
     return (
         <input
             {...props}
@@ -52,6 +62,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
             placeholder="Buscar conteúdo"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
+            ref={inputElement}
             className={props.className || ''}
         />
     );

@@ -1,5 +1,6 @@
 import API from '@services/api';
 import { createContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { IPostsContext, IPostsProvider, TAPIPosts } from './types';
 
 export const PostsContext = createContext({} as IPostsContext);
@@ -27,8 +28,13 @@ export function PostsProvider({ children }: IPostsProvider) {
                     });
                 setPosts(filteredPosts);
             } catch (error: any) {
-                console.error('Axios error', error.message);
-                console.error('API error', error.response.data.message);
+                toast.error(
+                    <>
+                        Eita! Algo deu errado ao puxar todas postagens! 🤯
+                        <br />
+                        <small>{error.message}</small>
+                    </>,
+                );
             }
         };
 

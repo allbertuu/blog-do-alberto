@@ -31,7 +31,13 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
             toast.success('Boaaa! Achei aqui! 🎉', { autoClose: 1500 });
             setPosts(res.data.items);
         } catch (error: any) {
-            toast.error(error.message);
+            toast.error(
+                <>
+                    Desculpa, não deu para pesquisar. Erro interno 🔎
+                    <br />
+                    <small>{error.message}</small>
+                </>,
+            );;
         }
     };
 

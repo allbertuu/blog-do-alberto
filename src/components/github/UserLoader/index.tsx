@@ -1,7 +1,8 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
-import { IUserData, UserLoaderProps } from './types';
 import API from '@services/api';
 import { format } from 'date-fns';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { IUserData, UserLoaderProps } from './types';
 
 /**
  * Carrega os dados do meu usuário do GitHub (allbertuu).
@@ -27,7 +28,13 @@ const UserLoader: FunctionComponent<UserLoaderProps> = ({ children }) => {
                 website: res.data.blog,
             });
         } catch (error: any) {
-            throw new Error(error);
+            toast.error(
+                <>
+                    Não entendi, não carregou minhas informações 😥
+                    <br />
+                    <small>{error.message}</small>
+                </>,
+            );
         }
     };
 

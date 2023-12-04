@@ -1,6 +1,7 @@
 import API from '@services/api';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { IPostData, PostLoaderProps } from './types';
 
 /**
@@ -16,13 +17,19 @@ const PostLoader: React.FC<PostLoaderProps> = ({ children }) => {
     useEffect(() => {
         const fetchPostData = async () => {
             try {
-                const response = await API.get(
+                const res = await API.get(
                     `/repos/allbertuu/blog-do-alberto/issues/${postId}`,
                 );
-
-                setPostData(response.data);
-            } catch (e) {
-                console.log(e);
+                setPostData(res.data);
+            } catch (error: any) {
+                toast.error(
+                    <>
+                        Algo deu errado. Não deu pra pegar o post de nº {postId}{' '}
+                        😞
+                        <br />
+                        <small>{error.message}</small>
+                    </>,
+                );
             }
         };
 

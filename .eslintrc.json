@@ -1,8 +1,5 @@
 {
-    "extends": [
-        "@rocketseat/eslint-config/react",
-        "plugin:@next/next/recommended"
-    ],
+    "extends": ["@rocketseat/eslint-config/next", "next/core-web-vitals"],
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": "off"

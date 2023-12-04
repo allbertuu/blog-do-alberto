@@ -19,5 +19,4 @@ export interface IPostsContext {
     posts: TAPIPosts;
     setPosts: Dispatch<SetStateAction<TAPIPosts>>;
     totalPosts: number;
-    getPosts(): Promise<void>;
 }

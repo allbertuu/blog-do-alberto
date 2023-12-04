@@ -1,6 +1,5 @@
-import API from '@services/api';
-import classNames from '@utils/classNames';
 import { useDebounce, usePosts } from '@hooks/index';
+import API from '@services/api';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { SearchInputProps } from './types';
 
@@ -9,7 +8,7 @@ import { SearchInputProps } from './types';
  */
 const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     const [inputValue, setInputValue] = useState<string>('');
-    const { setPosts, getPosts } = usePosts();
+    const { setPosts } = usePosts();
     const DEBOUNCE_TIME_IN_MILLISECONDS = 1000;
 
     const getFilteredPosts = async () => {
@@ -31,13 +30,10 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({ ...props }) => {
     );
 
     useEffect(() => {
-        if (inputValue) {
+        if (inputValue !== '') {
             debouncedCallback();
-            return;
         }
-
-        getPosts();
-    }, [debouncedCallback, getPosts, inputValue]);
+    }, [debouncedCallback, inputValue]);
 
     return (
         <input

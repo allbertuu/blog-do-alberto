@@ -17,9 +17,9 @@
     @apply border-[0.25rem] border-blue-500 bg-red-500/90;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 370px) {
     html {
-      font-size: 80%;
+      font-size: 90%;
     }
   }
 

@@ -56,7 +56,7 @@ export const PostHeader: React.FC = () => {
     <div className="rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
       {post && (
         <>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap gap-2">
             <Link
               showIcon
               iconSide="left"

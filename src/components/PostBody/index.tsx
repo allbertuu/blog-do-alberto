@@ -43,7 +43,7 @@ export const PostBody: React.FC = () => {
   return (
     <div className="py-8 sm:px-10">
       {post && (
-        <Markdown className="prose prose-invert max-w-full">
+        <Markdown className="prose prose-invert max-w-full prose-headings:border-b prose-headings:border-b-blue-300 prose-a:text-red-500/95 hover:prose-a:text-red-500/80 prose-blockquote:text-[#ffffff91] prose-img:w-[75%]">
           {post.body || DEFAULT_BODY}
         </Markdown>
       )}

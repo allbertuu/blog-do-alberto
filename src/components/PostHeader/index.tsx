@@ -84,7 +84,7 @@ export const PostHeader: React.FC = () => {
 
           <GitHubInfoList className="mt-4">
             <GitHubInfo
-              info="allbertuu"
+              info={`Autor: ${post.user.login}`}
               icon={
                 <Image
                   src={GitHubIcon}
@@ -98,7 +98,7 @@ export const PostHeader: React.FC = () => {
             />
 
             <GitHubInfo
-              info={formatDateFromDateToNow(post.created_at)}
+              info={`Postado ${formatDateFromDateToNow(post.created_at)}`}
               icon={
                 <CalendarIcon
                   size={'1.2rem'}
@@ -109,7 +109,9 @@ export const PostHeader: React.FC = () => {
             />
 
             <GitHubInfo
-              info={`${post.comments} comentários`}
+              info={`${post.comments} comentário${
+                post.comments > 1 || post.comments == 0 ? 's' : ''
+              }`}
               icon={
                 <ChatCircleDotsIcon
                   size={'1.2rem'}

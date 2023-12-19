@@ -9,9 +9,11 @@ import {
   Calendar as CalendarIcon,
   CaretLeft as CaretLeftIcon,
   ChatCircleDots as ChatCircleDotsIcon,
+  Timer as TimerIcon,
 } from 'phosphor-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import readingTime from 'reading-time';
 
 /**
  * Cabeçalho do post completo (issue do GitHub)
@@ -49,6 +51,9 @@ export const PostHeader: React.FC = () => {
    * Retorna para a página anterior na history do navegador.
    */
   const goBack = () => router.back();
+
+  const { minutes } = readingTime(post?.body || '');
+  const readingTimeInMinutes = Math.ceil(minutes);
 
   return (
     <div className="rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
@@ -98,6 +103,17 @@ export const PostHeader: React.FC = () => {
                 />
               }
             /> */}
+
+            <GitHubInfo
+              info={`Leitura de aproximadamente ${readingTimeInMinutes} minutos ☕️`}
+              icon={
+                <TimerIcon
+                  size={'1.2rem'}
+                  weight="fill"
+                  className="text-blue-300"
+                />
+              }
+            />
 
             <GitHubInfo
               info={`Postado ${formatDateFromDateToNow(post.created_at)}`}

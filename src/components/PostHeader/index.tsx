@@ -1,11 +1,9 @@
-import GitHubIcon from '@assets/icons/github.svg';
 import { GitHubInfo, GitHubInfoList } from '@components/github';
 import { LoadingMessage } from '@components/index';
 import { Link } from '@components/ui/index';
 import API from '@services/api';
 import { Post } from '@types';
 import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {
   Calendar as CalendarIcon,
@@ -56,7 +54,7 @@ export const PostHeader: React.FC = () => {
     <div className="rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
       {post && (
         <>
-          <div className="flex justify-between flex-wrap gap-2">
+          <div className="flex flex-wrap justify-between gap-2">
             <Link
               showIcon
               iconSide="left"
@@ -83,7 +81,11 @@ export const PostHeader: React.FC = () => {
           </h1>
 
           <GitHubInfoList className="mt-4">
-            <GitHubInfo
+            {/* TODO: No futuro, pode ser que tenha mais pessoas me ajudando.
+             // Se quiser fazer parte disso, me mande uma mensagem no LinkedIn.
+             // https://www.linkedin.com/in/albertov-albuquerque/ 
+              */}
+            {/* <GitHubInfo
               info={`Autor: ${post.user.login}`}
               icon={
                 <Image
@@ -95,7 +97,7 @@ export const PostHeader: React.FC = () => {
                   className="w-[1.125rem]"
                 />
               }
-            />
+            /> */}
 
             <GitHubInfo
               info={`Postado ${formatDateFromDateToNow(post.created_at)}`}

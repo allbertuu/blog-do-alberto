@@ -1,7 +1,7 @@
 import GitHubIcon from '@assets/icons/github.svg';
 import { LoadingMessage } from '@components/index';
 import { Link } from '@components/ui';
-import API from '@services/api';
+import { GitHubAPI } from '@services/github.api';
 import handleFollowersNumber from '@utils/handleFollowersNumber';
 import { format } from 'date-fns';
 import Image from 'next/image';
@@ -33,7 +33,7 @@ const Card: React.FC = () => {
   useEffect(() => {
     const getGitHubUser = async () => {
       try {
-        const res = await API.get('users/allbertuu');
+        const res = await GitHubAPI.get('users/allbertuu');
         setUser({
           avatarUrl: res.data.avatar_url,
           bio: res.data.bio,

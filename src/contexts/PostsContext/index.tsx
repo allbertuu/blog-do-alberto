@@ -1,4 +1,4 @@
-import API from '@services/api';
+import { GitHubAPI } from '@services/github.api';
 import { createContext, useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { IPostsContext, IPostsProvider, TAPIPosts } from './types';
@@ -10,23 +10,10 @@ export function PostsProvider({ children }: IPostsProvider) {
 
   const getPosts = useCallback(async () => {
     try {
-      const res = await API.get('/search/issues', {
-        params: { q: 'repo:allbertuu/blog-do-alberto' },
+      const res = await GitHubAPI.get('/search/issues', {
+        params: { q: 'repo:allbertuu/blog-do-alberto is:issue' },
       });
-      // TODO: usar graphQL para filtrar os dados
-      // Filtra os dados para pegar apenas os posts (issues) e não os pull requests
-      const filteredPosts = res.data.items
-        .filter((item: any) => !Object.hasOwn(item, 'pull_request'))
-        .map((post: any) => {
-          return {
-            id: post.id,
-            title: post.title,
-            body: post.body,
-            createdAt: post.created_at,
-            number: post.number,
-          };
-        });
-      setPosts(filteredPosts);
+      setPosts(res.data.items);
     } catch (error: any) {
       toast.error(
         <>

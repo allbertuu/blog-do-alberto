@@ -5,7 +5,7 @@ export interface IPost {
   number: number;
   title: string;
   body: string;
-  createdAt: string;
+  created_at: string;
 }
 
 /** Tipo da resposta da API  */

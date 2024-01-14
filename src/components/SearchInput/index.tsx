@@ -1,5 +1,5 @@
 import { useDebounce, usePosts } from '@hooks/index';
-import API from '@services/api';
+import { GitHubAPI } from '@services/github.api';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { SearchInputProps } from './types';
@@ -16,33 +16,19 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
 
   const getFilteredPosts = async () => {
     try {
-      const res = await API.get('/search/issues', {
+      const res = await GitHubAPI.get('/search/issues', {
         params: {
-          q: `${inputValue} repo:allbertuu/blog-do-alberto`,
+          q: `${inputValue} repo:allbertuu/blog-do-alberto is:issue`,
         },
       });
-
-      // TODO: usar graphQL para filtrar os dados
-      // Filtra os dados para pegar apenas os posts (issues) e não os pull requests
-      const filteredPosts = res.data.items
-        .filter((item: any) => !Object.hasOwn(item, 'pull_request'))
-        .map((post: any) => {
-          return {
-            id: post.id,
-            title: post.title,
-            body: post.body,
-            createdAt: post.created_at,
-            number: post.number,
-          };
-        });
-      if (filteredPosts.length === 0) {
-        toast.warn('Vish! O Alberto tá preguiçoso, ainda não fez esse post.');
+      if (res.data.items.length === 0) {
+        toast.warn('Vish! O Alberto tá preguiçoso, ainda não fez esse post 😂');
         setPosts([]);
         return;
       }
 
       toast.success('Boaaa! Achei aqui! 🎉', { autoClose: 1500 });
-      setPosts(filteredPosts);
+      setPosts(res.data.items);
     } catch (error: any) {
       toast.error(
         <>

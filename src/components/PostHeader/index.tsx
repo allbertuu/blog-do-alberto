@@ -1,7 +1,7 @@
 import { GitHubInfo, GitHubInfoList } from '@components/github';
 import { LoadingMessage } from '@components/index';
 import { Link } from '@components/ui/index';
-import API from '@services/api';
+import { GitHubAPI } from '@services/github.api';
 import { Post } from '@types';
 import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 import { useRouter } from 'next/router';
@@ -27,7 +27,7 @@ export const PostHeader: React.FC = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await API.get(
+        const res = await GitHubAPI.get(
           `/repos/allbertuu/blog-do-alberto/issues/${postId}`
         );
         setPost(res.data);

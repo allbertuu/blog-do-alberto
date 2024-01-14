@@ -1,6 +1,6 @@
 import { LoadingMessage } from '@components/index';
 import { Markdown } from '@components/lib/Markdown';
-import API from '@services/api';
+import { GitHubAPI } from '@services/github.api';
 import { Post } from '@types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,7 @@ export const PostBody: React.FC = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await API.get(
+        const res = await GitHubAPI.get(
           `/repos/allbertuu/blog-do-alberto/issues/${postId}`
         );
         setPost(res.data);

@@ -11,7 +11,7 @@ export interface PostLinkProps {
  */
 export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
   const router = useRouter();
-  const { createdAt, body, title, number } = post;
+  const { created_at, body, title, number } = post;
 
   const handleOnClick = () => {
     router.push(`/posts/${number}`);
@@ -26,7 +26,7 @@ export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
       <h1 className="text-xl font-bold text-blue-50">{title}</h1>
 
       <time className="mb-4 mt-1 block text-sm text-[#7B96B2]">
-        Postado {formatDateFromDateToNow(createdAt)}
+        Postado {formatDateFromDateToNow(created_at)}
       </time>
 
       <div className="overflow-hidden text-ellipsis whitespace-nowrap text-blue-200">

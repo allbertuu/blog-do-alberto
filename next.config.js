@@ -3,6 +3,11 @@ module.exports = {
     reactStrictMode: true,
 
     images: {
-        domains: ['avatars.githubusercontent.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**.githubusercontent.com',
+            },
+        ]
     },
 };

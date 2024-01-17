@@ -56,7 +56,7 @@ export const PostHeader: React.FC = () => {
   const readingTimeInMinutes = Math.ceil(minutes);
 
   return (
-    <div className="rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
+    <div className="mx-auto w-full max-w-lg rounded-xl bg-blue-600 px-6 py-8 text-blue-50 shadow-lg shadow-black/20 sm:px-10">
       {post && (
         <>
           <div className="flex flex-wrap justify-between gap-2">
@@ -81,7 +81,7 @@ export const PostHeader: React.FC = () => {
             </Link>
           </div>
 
-          <h1 className="mb-2 mt-5 text-xl font-bold sm:text-2xl">
+          <h1 className="mb-2 mt-5 break-words text-xl font-bold sm:text-2xl">
             {post.title}
           </h1>
 

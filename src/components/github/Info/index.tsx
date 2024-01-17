@@ -1,6 +1,6 @@
+import classNames from '@utils/classNames';
 import { FunctionComponent } from 'react';
 import { InfoListProps, InfoProps } from './types';
-import classNames from '@utils/classNames';
 
 /**
  * Renderiza um ícone e um texto (informação do GitHub)
@@ -31,7 +31,7 @@ export const InfoList: FunctionComponent<InfoListProps> = ({
       {...props}
       className={classNames(
         props.className || '',
-        'flex flex-col gap-2 text-blue-100 sm:flex-row sm:items-end sm:gap-4'
+        'flex flex-col gap-2 text-blue-100 sm:gap-4'
       )}
     >
       {children}

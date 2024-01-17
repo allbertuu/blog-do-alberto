@@ -95,7 +95,7 @@ const Card: React.FC = () => {
             {/* GitHub Bio */}
             <p className="flex-1 text-blue-200">{user.bio}</p>
             {/* GitHub Info List about my profile */}
-            <GitHubInfoList className="mt-3 sm:mt-0">
+            <GitHubInfoList className="mt-3 sm:mt-0 sm:flex-row sm:items-end">
               <GitHubInfo
                 icon={
                   <Image

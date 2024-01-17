@@ -16,7 +16,7 @@ const Avatar: FunctionComponent<AvatarProps> = ({ imageUrl }) => {
         // TODO: inserir uma imagem de fallback
         src={imageUrl || ''}
         alt="Foto de perfil do GitHub"
-        className="mx-auto w-3/4 sm:max-w-[7.8125rem] cursor-pointer rounded-xl"
+        className="mx-auto w-3/4 cursor-pointer rounded-xl sm:max-w-[7.8125rem]"
         width={460}
         height={460}
         onClick={() => handleImageClick()}

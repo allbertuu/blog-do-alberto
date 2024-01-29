@@ -1,9 +1,7 @@
-import { FunctionComponent } from 'react';
-import { BlogBannerProps } from './types';
 import IntroBackgroundImage from '@imgs/intro-background.png';
 import Image from 'next/image';
 
-const BlogBanner: FunctionComponent<BlogBannerProps> = () => {
+const BlogBanner: React.FC = () => {
   return (
     <Image
       src={IntroBackgroundImage}

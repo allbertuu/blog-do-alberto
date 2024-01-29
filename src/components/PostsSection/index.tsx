@@ -2,7 +2,7 @@ import { PostLink } from '@components/PostLink';
 import { usePosts } from '@hooks/index';
 import { FunctionComponent } from 'react';
 
-export interface PostsSectionProps extends React.HTMLAttributes<HTMLElement> {}
+export type PostsSectionProps = React.HTMLAttributes<HTMLElement>
 
 /**
  * Renderiza a lista de posts/publicações (GitHub Issues)

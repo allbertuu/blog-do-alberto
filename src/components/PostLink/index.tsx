@@ -11,7 +11,7 @@ export interface PostLinkProps {
  */
 export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
   const router = useRouter();
-  const { created_at, body, title } = post;
+  const { created_at: createdAt, body, title } = post;
 
   function replaceSpecialCharacters(str: string) {
     return str
@@ -43,7 +43,7 @@ export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
       <h1 className="text-xl font-bold text-blue-50">{title}</h1>
 
       <time className="mb-4 mt-1 block text-sm text-[#7B96B2]">
-        Postado {formatDateFromDateToNow(created_at)}
+        Postado {formatDateFromDateToNow(createdAt)}
       </time>
 
       <div className="overflow-hidden text-ellipsis whitespace-nowrap text-blue-200">

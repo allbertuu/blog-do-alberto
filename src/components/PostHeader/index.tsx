@@ -31,6 +31,7 @@ export const PostHeader: React.FC = () => {
     try {
       const data = await fetchIssue(issueNumber);
       setPost(data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       toast.error(
         <>
@@ -129,7 +130,7 @@ export const PostHeader: React.FC = () => {
 
             <GitHubInfo
               info={`${post.comments} comentário${
-                post.comments > 1 || post.comments == 0 ? 's' : ''
+                post.comments > 1 || post.comments === 0 ? 's' : ''
               }`}
               icon={
                 <ChatCircleDotsIcon

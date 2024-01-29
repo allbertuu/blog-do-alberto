@@ -46,7 +46,8 @@ export const PostHeader: React.FC = () => {
 
   useEffect(() => {
     handleFetchIssue();
-  }, []);
+  }, [router.query.postTitle]);
+  
   /**
    * Retorna para a página anterior na history do navegador.
    */

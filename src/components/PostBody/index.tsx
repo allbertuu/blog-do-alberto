@@ -39,7 +39,7 @@ export const PostBody: React.FC = () => {
 
   useEffect(() => {
     handleFetchIssue();
-  }, []);
+  }, [router.query.postTitle]);
 
   return (
     <div className="py-8 sm:px-10">

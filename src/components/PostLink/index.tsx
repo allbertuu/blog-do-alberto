@@ -1,9 +1,9 @@
-import { IPost } from '@contexts/PostsContext/types';
+import { GitHubIssue } from '@services/github.api';
 import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
 import { useRouter } from 'next/router';
 
 export interface PostLinkProps {
-  post: IPost;
+  post: GitHubIssue;
 }
 
 /**
@@ -11,10 +11,27 @@ export interface PostLinkProps {
  */
 export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
   const router = useRouter();
-  const { created_at, body, title, number } = post;
+  const { created_at, body, title } = post;
+
+  function replaceSpecialCharacters(str: string) {
+    return str
+      .replace(/[áàãâä]/g, 'a')
+      .replace(/[éèêë]/g, 'e')
+      .replace(/[íìîï]/g, 'i')
+      .replace(/[óòõôö]/g, 'o')
+      .replace(/[úùûü]/g, 'u')
+      .replace(/ç/g, 'c')
+      .replace(/"|'|!|$|,|:/g, '');
+  }
+
+  const urlFriendlyTitle = replaceSpecialCharacters(
+    title.replaceAll(' ', '-').toLowerCase()
+  );
 
   const handleOnClick = () => {
-    router.push(`/posts/${number}`);
+    router.push(
+      `/posts/${encodeURIComponent(urlFriendlyTitle)}/${post.number}`
+    );
   };
 
   return (

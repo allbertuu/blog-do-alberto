@@ -1,7 +1,6 @@
 import { LoadingMessage } from '@components/index';
 import { Markdown } from '@components/lib/Markdown';
-import { GitHubAPI } from '@services/github.api';
-import { Post } from '@types';
+import { GitHubIssueExtended, fetchIssue } from '@services/github.api';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -12,33 +11,35 @@ import { toast } from 'react-toastify';
 export const PostBody: React.FC = () => {
   const DEFAULT_BODY = '### Sem dados para exibir.';
 
-  const [post, setPost] = useState<Post | null>(null);
+  const [post, setPost] = useState<GitHubIssueExtended | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const { postId } = router.query;
+
+  const handleFetchIssue = async () => {
+    const query = router.query.postTitle;
+    if (!query) return;
+
+    const issueNumber = query[1];
+
+    try {
+      const data = await fetchIssue(issueNumber);
+      setPost(data);
+    } catch (e: any) {
+      toast.error(
+        <>
+          Ish! Não deu pra acessar esse! 😞
+          <br />
+          <small>{e.message}</small>
+        </>
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const res = await GitHubAPI.get(
-          `/repos/allbertuu/blog-do-alberto/issues/${postId}`
-        );
-        setPost(res.data);
-      } catch (error: any) {
-        toast.error(
-          <>
-            Algo deu errado. Não deu pra pegar o post de nº {postId} 😞
-            <br />
-            <small>{error.message}</small>
-          </>
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (postId) fetchPost();
-  }, [postId]);
+    handleFetchIssue();
+  }, []);
 
   return (
     <div className="py-8 sm:px-10">

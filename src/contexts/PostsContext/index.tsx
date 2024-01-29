@@ -1,12 +1,12 @@
-import { GitHubAPI } from '@services/github.api';
+import { GitHubAPI, GitHubIssue } from '@services/github.api';
 import { createContext, useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { IPostsContext, IPostsProvider, TAPIPosts } from './types';
+import { IPostsContext, IPostsProvider } from './types';
 
 export const PostsContext = createContext({} as IPostsContext);
 
 export function PostsProvider({ children }: IPostsProvider) {
-  const [posts, setPosts] = useState<TAPIPosts>([]);
+  const [posts, setPosts] = useState<GitHubIssue[] | []>([]);
 
   const getPosts = useCallback(async () => {
     try {

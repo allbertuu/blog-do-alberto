@@ -7,6 +7,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react",
         "@rocketseat/eslint-config/next"
     ],
     "parser": "@typescript-eslint/parser",
@@ -16,7 +18,9 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "jest-dom",
+        "testing-library"
     ],
     "rules": {
         "prettier/prettier": "off",

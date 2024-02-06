@@ -1,23 +1,16 @@
-<div align="center">
-  <img src="https://img.shields.io/badge/status-completed-brightgreen" />
-</div>
-
-<div align="center">
-  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/NextJS-black?logo=next.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" />
-</div>
+[![Release](https://github.com/allbertuu/blog-do-alberto/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/allbertuu/blog-do-alberto/actions/workflows/release.yml)
+<img src="https://img.shields.io/badge/status-completed-brightgreen" />
 
 # blog-do-alberto
 
-🔥 Meu Blog, integrado ao `GitHub API`, transformando as issues desse repo, em posts incríveis ⭐. Vem me acompanhar!
+🔥 Meu Blog, integrado ao `GitHub API`, transformando as issues desse repo, em **posts incríveis** ⭐. Vem me acompanhar!
 
 > Feito com ❤, e ReactJS ⚛!
 
 ## Funcionalidades ⚡
 
 -   Consumir conteúdo que eu postar, em um único local, através de **posts simples, diretos e completos** sobre tecnologia, cultura pop e +. Ah! Todos os conteúdos são formatados em **Markdown para sua melhor leitura**!
--   Ter acesso as **minhas informações em tempo real**, como seguidores do GitHub, meu link do website, empresa atual etc.
+-   Ter acesso as **minhas informações em tempo real**, como seguidores do GitHub, link do meu website, empresa atual etc.
 
 ## Rodando localmente ▶
 
@@ -42,7 +35,7 @@ Instale as dependências
 Rode o servidor
 
 ```bash
-  npm dev
+  npm run dev
 ```
 
 > Irá rodar na porta `3000` do `localhost`
@@ -50,8 +43,9 @@ Rode o servidor
 ## Stack utilizada ⚙
 
 -   Next.js
--   React
--   TypeScript
+-   React.js
+-   JavaScript/TypeScript
+-   HTML/CSS
 -   React Toastify
 -   TailwindCSS
 -   react-markdown
@@ -59,6 +53,7 @@ Rode o servidor
 -   Radix UI
 -   phosphor-react
 -   date-fns
+-   GitHub Actions (Pipelines CI)
 
 ## Feedback 💬
 

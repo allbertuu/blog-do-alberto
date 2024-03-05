@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Blog do Alberto | Onde você experimenta minha mente',
   },
   description:
-    'Aqui você encontra de (quase) tudo, especialmente tecnologia 👨🏽‍💻',
+    'Aqui você encontra discussões, dicas e sugestões de (quase) tudo, especialmente tecnologia, porém sob o meu olhar 👨🏽‍💻',
   generator: 'Next.js',
   applicationName: 'Blog do Alberto',
   keywords:

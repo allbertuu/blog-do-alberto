@@ -26,13 +26,35 @@ export const GitHubAPI = axios.create({
   },
 });
 
+const basicHeaders = {
+  Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+};
+
 /**
  * Busca por uma issue do repositório `/blog-do-alberto` pelo seu número
  * @param number Número da issue a ser buscada
  */
 export const fetchIssue = async (number: string | number) => {
-  const res = await GitHubAPI.get(
-    `/repos/allbertuu/blog-do-alberto/issues/${number}}`
+  const res = await fetch(
+    `https://api.github.com/repos/allbertuu/blog-do-alberto/issues/${number}}`,
+    { headers: basicHeaders }
   );
-  return res.data as GitHubIssueExtended;
+
+  if (!res.ok) {
+    throw new Error('Não foi possível carregar o post');
+  }
+
+  return (await res.json()) as GitHubIssueExtended;
+};
+
+export const fetchPosts = async () => {
+  const url = new URL('https://api.github.com/search/issues');
+  url.searchParams.append('q', 'repo:allbertuu/blog-do-alberto is:issue');
+  const res = await fetch(url.href, { headers: basicHeaders });
+
+  if (!res.ok) {
+    throw new Error('Não foi possível carregar os posts');
+  }
+
+  return (await res.json()) as GitHubIssue[];
 };

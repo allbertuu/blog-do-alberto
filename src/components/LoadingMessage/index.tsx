@@ -1,6 +1,7 @@
-import classNames from '@utils/classNames';
-import { SpinnerGap as SpinnerGapIcon } from 'phosphor-react';
-import { FunctionComponent } from 'react';
+'use client';
+
+import classNames from '@/utils/classNames';
+import { SpinnerGap as SpinnerGapIcon } from '@phosphor-icons/react/dist/ssr';
 import { LoadingMessageProps } from './types';
 
 /**
@@ -8,7 +9,7 @@ import { LoadingMessageProps } from './types';
  *
  * @param message Mensagem de carregamento. Padrão: 'Carregando, aguarde...'
  * */
-const LoadingMessage: FunctionComponent<LoadingMessageProps> = ({
+const LoadingMessage: React.FC<LoadingMessageProps> = ({
   message,
   ...props
 }) => {

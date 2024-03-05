@@ -1,5 +1,4 @@
-import classNames from '@utils/classNames';
-import { FunctionComponent } from 'react';
+import classNames from '@/utils/classNames';
 import { InfoListProps, InfoProps } from './types';
 
 /**
@@ -8,7 +7,7 @@ import { InfoListProps, InfoProps } from './types';
  * @param icon Ícone a ser renderizado
  * @param info Informação a ser renderizada em texto
  */
-const Info: FunctionComponent<InfoProps> = ({ icon, info }) => {
+const Info: React.FC<InfoProps> = ({ icon, info }) => {
   return (
     <span className="flex items-center gap-2">
       {icon}
@@ -22,10 +21,7 @@ const Info: FunctionComponent<InfoProps> = ({ icon, info }) => {
  *
  * Utiliza 'Layout pattern'
  */
-export const InfoList: FunctionComponent<InfoListProps> = ({
-  children,
-  ...props
-}) => {
+export const InfoList: React.FC<InfoListProps> = ({ children, ...props }) => {
   return (
     <div
       {...props}

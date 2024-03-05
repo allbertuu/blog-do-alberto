@@ -1,6 +1,6 @@
-import { GitHubIssue } from '@services/github.api';
-import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
-import { useRouter } from 'next/router';
+import { GitHubIssue } from '@/services/github.api';
+import formatDateFromDateToNow from '@/utils/formatDateFromDateToNow';
+import Link from 'next/link';
 
 export interface PostLinkProps {
   post: GitHubIssue;
@@ -10,7 +10,6 @@ export interface PostLinkProps {
  * Renderiza um card com informações sobre 1 post (GitHub Issues)
  */
 export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
-  const router = useRouter();
   const { created_at: createdAt, body, title } = post;
 
   function replaceSpecialCharacters(str: string) {
@@ -28,17 +27,10 @@ export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
     title.replaceAll(' ', '-').toLowerCase()
   );
 
-  const handleOnClick = () => {
-    router.push(
-      `/posts/${encodeURIComponent(urlFriendlyTitle)}/${post.number}`
-    );
-  };
-
   return (
-    <div
-      role={'link'}
+    <Link
+      href={`/posts/${encodeURIComponent(urlFriendlyTitle)}/${post.number}`}
       className="max-h-64 cursor-pointer rounded-xl bg-blue-500 p-8 hover:outline hover:outline-2 hover:outline-red-500"
-      onClick={handleOnClick}
     >
       <h1 className="text-xl font-bold text-blue-50">{title}</h1>
 
@@ -49,6 +41,6 @@ export const PostLink: React.FC<PostLinkProps> = ({ post }) => {
       <div className="overflow-hidden text-ellipsis whitespace-nowrap text-blue-200">
         {body}
       </div>
-    </div>
+    </Link>
   );
 };

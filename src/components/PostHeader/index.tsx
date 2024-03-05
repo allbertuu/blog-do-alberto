@@ -1,15 +1,17 @@
-import { GitHubInfo, GitHubInfoList } from '@components/github';
-import { LoadingMessage } from '@components/index';
-import { Link } from '@components/ui/index';
-import { GitHubIssueExtended, fetchIssue } from '@services/github.api';
-import formatDateFromDateToNow from '@utils/formatDateFromDateToNow';
-import { useRouter } from 'next/router';
+'use client';
+
+import { GitHubInfo, GitHubInfoList } from '@/components/github';
+import { LoadingMessage } from '@/components/index';
+import { ExternalLink } from '@/components/ui/index';
+import { GitHubIssueExtended, fetchIssue } from '@/services/github.api';
+import formatDateFromDateToNow from '@/utils/formatDateFromDateToNow';
 import {
   Calendar as CalendarIcon,
   CaretLeft as CaretLeftIcon,
   ChatCircleDots as ChatCircleDotsIcon,
   Timer as TimerIcon,
-} from 'phosphor-react';
+} from '@phosphor-icons/react/dist/ssr';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import readingTime from 'reading-time';
@@ -20,14 +22,11 @@ import readingTime from 'reading-time';
 export const PostHeader: React.FC = () => {
   const [post, setPost] = useState<GitHubIssueExtended | null>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleFetchIssue = async () => {
-      const query = router.query.postTitle;
-      if (!query) return;
-
-      const issueNumber = query[1];
+      const issueNumber = pathname.split('/')[3];
 
       try {
         const data = await fetchIssue(issueNumber);
@@ -46,12 +45,7 @@ export const PostHeader: React.FC = () => {
     };
 
     handleFetchIssue();
-  }, [router.query.postTitle]);
-
-  /**
-   * Retorna para a página anterior na history do navegador.
-   */
-  const goBack = () => router.back();
+  }, [pathname]);
 
   const { minutes } = readingTime(post?.body || '');
   const readingTimeInMinutes = Math.ceil(minutes);
@@ -61,7 +55,7 @@ export const PostHeader: React.FC = () => {
       {post && (
         <>
           <div className="flex flex-wrap justify-between gap-2">
-            <Link
+            <ExternalLink
               showIcon
               iconSide="left"
               icon={
@@ -71,15 +65,15 @@ export const PostHeader: React.FC = () => {
                   className="-mr-1 -mt-1"
                 />
               }
-              onClick={goBack}
+              href="/"
               target="_self"
             >
-              Voltar
-            </Link>
+              Tela inicial
+            </ExternalLink>
 
-            <Link showIcon href={post.html_url}>
+            <ExternalLink showIcon href={post.html_url}>
               Comente ou reaja aqui 👍
-            </Link>
+            </ExternalLink>
           </div>
 
           <h1 className="mb-2 mt-5 break-words text-xl font-bold sm:text-2xl">

@@ -1,8 +1,9 @@
-import classNames from '@utils/classNames';
-import { ArrowSquareOut } from 'phosphor-react';
-import { ILinkProps } from './types';
+import classNames from '@/utils/classNames';
+import { ArrowSquareOut } from '@phosphor-icons/react/dist/ssr';
+import { ExternalLinkProps } from './types';
+import Link from 'next/link';
 
-const Link: React.FC<ILinkProps> = ({
+const ExternalLink: React.FC<ExternalLinkProps> = ({
   children,
   icon,
   showIcon,
@@ -14,7 +15,7 @@ const Link: React.FC<ILinkProps> = ({
   );
 
   return (
-    <a
+    <Link
       {...props}
       href={props.href || '#'}
       target={props.target || '_blank'}
@@ -35,8 +36,8 @@ const Link: React.FC<ILinkProps> = ({
     >
       {iconSide === 'left' && showIcon && iconView} {children}{' '}
       {iconSide !== 'left' && showIcon && iconView}
-    </a>
+    </Link>
   );
 };
 
-export default Link;
+export default ExternalLink;

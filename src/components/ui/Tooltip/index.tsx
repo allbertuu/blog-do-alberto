@@ -1,5 +1,7 @@
+'use client';
+
 import * as RTooltip from '@radix-ui/react-tooltip';
-import classNames from '@utils/classNames';
+import classNames from '@/utils/classNames';
 import { TooltipProps } from './types';
 
 /**

@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/allbertuu/blog-do-alberto/compare/v1.4.1...v2.0.0) (2024-03-05)
+
+
+* Migrate from pages router to app router (#13) ([bd7b887](https://github.com/allbertuu/blog-do-alberto/commit/bd7b887bfe7942c38aa1e60bda940a8de3fb2a89)), closes [#13](https://github.com/allbertuu/blog-do-alberto/issues/13)
+
+
+### BREAKING CHANGES
+
+* update Next.js to v14, React DOM and React to the latest and much deps were updated
+even for fixes or SSR paradigm
+
+* fix: add use client directive and other fixes
+
 ## [1.4.1](https://github.com/allbertuu/blog-do-alberto/compare/v1.4.0...v1.4.1) (2024-03-05)
 
 

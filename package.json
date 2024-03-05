@@ -7,7 +7,7 @@
     "prod": "next build && next start",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "format": "prettier . --write",
+    "format": "npm run lint:check && prettier . --write",
     "lint": "eslint . --fix",
     "lint:check": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },

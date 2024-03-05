@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/allbertuu/blog-do-alberto/compare/v2.0.0...v2.1.0) (2024-03-05)
+
+
+### Features
+
+* **page:** add specific metadata as `title` and `description` for the post page ([b1670dc](https://github.com/allbertuu/blog-do-alberto/commit/b1670dca55fea1788e25036703c69d4de72ed706))
+
 # [2.0.0](https://github.com/allbertuu/blog-do-alberto/compare/v1.4.1...v2.0.0) (2024-03-05)
 
 

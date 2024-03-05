@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/allbertuu/blog-do-alberto/compare/v1.4.0...v1.4.1) (2024-03-05)
+
+
+### Bug Fixes
+
+* run eslint ([9beb702](https://github.com/allbertuu/blog-do-alberto/commit/9beb7022f4f1a76763cd8fb4cdde5ed269c1e76a))
+
 # [1.4.0](https://github.com/allbertuu/blog-do-alberto/compare/v1.3.0...v1.4.0) (2024-02-06)
 
 

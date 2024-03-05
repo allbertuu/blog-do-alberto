@@ -4,14 +4,12 @@
   "version": "1.4.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "prod": "next build && next start",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "format": "prettier . --write",
-    "format:check": "prettier . --check",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --ext ts,tsx --fix"
+    "lint": "eslint . --fix",
+    "lint:check": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.0.2",

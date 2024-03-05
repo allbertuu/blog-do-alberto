@@ -1,6 +1,6 @@
 import { useDebounce, usePosts } from '@hooks/index';
 import { GitHubAPI } from '@services/github.api';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { SearchInputProps } from './types';
 
@@ -14,7 +14,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
   const SEARCH_MIN_LENGTH = 3;
   const inputElement = useRef<HTMLInputElement>(null);
 
-  const getFilteredPosts = async () => {
+  const getFilteredPosts = useCallback(async () => {
     try {
       const res = await GitHubAPI.get('/search/issues', {
         params: {
@@ -38,7 +38,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
         </>
       );
     }
-  };
+  }, [inputValue, setPosts]);
 
   const debouncedCallback = useDebounce(
     getFilteredPosts,
@@ -53,7 +53,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
     if (inputValue.length === 0) {
       getPosts();
     }
-  }, [inputValue]);
+  }, [debouncedCallback, getPosts, inputValue]);
 
   // That's a way to autoFocus that respect React way of doing things
   // https://blog.maisie.ink/react-ref-autofocus/#time-for-react

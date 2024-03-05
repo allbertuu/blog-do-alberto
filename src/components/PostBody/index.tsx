@@ -15,29 +15,29 @@ export const PostBody: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const handleFetchIssue = async () => {
-    const query = router.query.postTitle;
-    if (!query) return;
-
-    const issueNumber = query[1];
-
-    try {
-      const data = await fetchIssue(issueNumber);
-      setPost(data);
-    } catch (e: any) {
-      toast.error(
-        <>
-          Ish! Não deu pra acessar esse! 😞
-          <br />
-          <small>{e.message}</small>
-        </>
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const handleFetchIssue = async () => {
+      const query = router.query.postTitle;
+      if (!query) return;
+
+      const issueNumber = query[1];
+
+      try {
+        const data = await fetchIssue(issueNumber);
+        setPost(data);
+      } catch (e: any) {
+        toast.error(
+          <>
+            Ish! Não deu pra acessar esse! 😞
+            <br />
+            <small>{e.message}</small>
+          </>
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
     handleFetchIssue();
   }, [router.query.postTitle]);
 

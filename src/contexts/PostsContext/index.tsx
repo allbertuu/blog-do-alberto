@@ -1,5 +1,5 @@
 import { GitHubAPI, GitHubIssue } from '@services/github.api';
-import { createContext, useCallback, useEffect, useState } from 'react';
+import { createContext, useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { IPostsContext, IPostsProvider } from './types';
 
@@ -23,10 +23,6 @@ export function PostsProvider({ children }: IPostsProvider) {
         </>
       );
     }
-  }, []);
-
-  useEffect(() => {
-    getPosts();
   }, []);
 
   return (

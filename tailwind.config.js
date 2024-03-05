@@ -7,7 +7,7 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            sans: ['Nunito'],
+            sans: ['Nunito', 'sans'],
             titillium: ['var(--font-titillium)'],
         },
         colors: {

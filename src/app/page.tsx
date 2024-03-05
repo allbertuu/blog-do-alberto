@@ -1,10 +1,9 @@
 import { BlogBanner, LogoBrandContainer, SearchInput } from '@/components';
 import { Posts } from '@/components/Posts';
+import { TotalPosts } from '@/components/TotalPosts';
 import { GitHubCard } from '@/components/github';
 
 export default async function Page() {
-  // const posts = await fetchPosts();
-
   return (
     <div>
       <BlogBanner />
@@ -18,10 +17,7 @@ export default async function Page() {
         <div className="mb-2 mt-16 flex flex-1 justify-between font-bold">
           <h1 className="text-2xl text-blue-100">Publicações</h1>
 
-          {/* <p className="text-lg text-[#7B96B2]">
-            <span>{posts.length}</span>{' '}
-            {posts.length === 1 ? 'publicação' : 'publicações'}
-          </p> */}
+          <TotalPosts />
         </div>
 
         <SearchInput className="mb-12 w-full" />

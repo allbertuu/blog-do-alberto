@@ -1,11 +1,16 @@
-import GitHubIcon from '@assets/icons/github.svg';
-import { LoadingMessage } from '@components/index';
-import { Link } from '@components/ui';
-import { GitHubAPI } from '@services/github.api';
-import handleFollowersNumber from '@utils/handleFollowersNumber';
+'use client';
+
+import GitHubIcon from '@/assets/icons/github.svg';
+import { LoadingMessage } from '@/components/index';
+import { ExternalLink } from '@/components/ui';
+import { GitHubAPI } from '@/services/github.api';
+import handleFollowersNumber from '@/utils/handleFollowersNumber';
 import { format } from 'date-fns';
 import Image from 'next/image';
-import { Buildings as BuildingsIcon, Users as UsersIcon } from 'phosphor-react';
+import {
+  Buildings as BuildingsIcon,
+  Users as UsersIcon,
+} from '@phosphor-icons/react/dist/ssr';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Avatar from '../Avatar';
@@ -84,12 +89,12 @@ const Card: React.FC = () => {
               </h1>
 
               <div className="flex gap-2" role={'group'}>
-                <Link showIcon href={user.githubUrl} title="GitHub">
+                <ExternalLink showIcon href={user.githubUrl} title="GitHub">
                   GitHub
-                </Link>
-                <Link showIcon href={user.website} title="Website">
+                </ExternalLink>
+                <ExternalLink showIcon href={user.website} title="Website">
                   Website
-                </Link>
+                </ExternalLink>
               </div>
             </div>
             {/* GitHub Bio */}

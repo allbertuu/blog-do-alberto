@@ -1,5 +1,7 @@
-import { useDebounce, usePosts } from '@hooks/index';
-import { GitHubAPI } from '@services/github.api';
+'use client';
+
+import { useDebounce, usePosts } from '@/hooks/index';
+import { GitHubAPI } from '@/services/github.api';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { SearchInputProps } from './types';

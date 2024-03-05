@@ -1,4 +1,6 @@
-import { GitHubAPI, GitHubIssue } from '@services/github.api';
+'use client';
+
+import { GitHubAPI, GitHubIssue } from '@/services/github.api';
 import { createContext, useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { IPostsContext, IPostsProvider } from './types';

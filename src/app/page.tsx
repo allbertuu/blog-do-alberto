@@ -1,20 +1,11 @@
-import { GitHubCard } from '@components/github';
-import {
-  BlogBanner,
-  LogoBrandContainer,
-  SearchInput,
-  TotalPosts,
-} from '@components/index';
-import { PostsSection } from '@components/PostsSection';
-import Head from 'next/head';
+import { BlogBanner, LogoBrandContainer, SearchInput } from '@/components';
+import { Posts } from '@/components/Posts';
+import { TotalPosts } from '@/components/TotalPosts';
+import { GitHubCard } from '@/components/github';
 
-const Home = () => {
+export default async function Page() {
   return (
     <div>
-      <Head>
-        <title>Blog do Alberto | Onde você experimenta minha mente</title>
-      </Head>
-
       <BlogBanner />
 
       <main className="mx-auto w-full max-w-4xl px-6 pb-40">
@@ -31,10 +22,8 @@ const Home = () => {
 
         <SearchInput className="mb-12 w-full" />
 
-        <PostsSection />
+        <Posts />
       </main>
     </div>
   );
-};
-
-export default Home;
+}

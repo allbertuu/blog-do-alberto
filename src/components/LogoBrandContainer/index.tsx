@@ -1,12 +1,12 @@
-import LogoAlbertoDeveloperImage from '@imgs/logo-albertodeveloper.svg';
+import LogoPortfolioWebsiteImage from '@/assets/imgs/logo-portfolio-website.svg';
 import Image from 'next/image';
 
 const LogoBrandContainer: React.FC = () => {
   return (
     <div className="relative mb-10 mt-14 flex flex-col items-center justify-center gap-1">
       <Image
-        src={LogoAlbertoDeveloperImage}
-        alt="Logotipo Website albertodeveloper.com"
+        src={LogoPortfolioWebsiteImage}
+        alt="Logotipo Website albertosantos.dev"
       />
 
       <h1 className="font-titillium text-4xl font-bold text-blue-50">

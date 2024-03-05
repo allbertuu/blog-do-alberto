@@ -1,7 +1,9 @@
-import { LoadingMessage } from '@components/index';
-import { Markdown } from '@components/lib/Markdown';
-import { GitHubIssueExtended, fetchIssue } from '@services/github.api';
-import { useRouter } from 'next/router';
+'use client';
+
+import { LoadingMessage } from '@/components/index';
+import { Markdown } from '@/components/lib/Markdown';
+import { GitHubIssueExtended, fetchIssue } from '@/services/github.api';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -13,14 +15,11 @@ export const PostBody: React.FC = () => {
 
   const [post, setPost] = useState<GitHubIssueExtended | null>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleFetchIssue = async () => {
-      const query = router.query.postTitle;
-      if (!query) return;
-
-      const issueNumber = query[1];
+      const issueNumber = pathname.split('/')[3];
 
       try {
         const data = await fetchIssue(issueNumber);
@@ -39,7 +38,7 @@ export const PostBody: React.FC = () => {
     };
 
     handleFetchIssue();
-  }, [router.query.postTitle]);
+  }, [pathname]);
 
   return (
     <div className="py-8 sm:px-10">

@@ -42,7 +42,7 @@ Rode o servidor
 
 ## Stack utilizada ⚙
 
--   Next.js
+-   Next.js App Router
 -   React.js
 -   JavaScript/TypeScript
 -   HTML/CSS
@@ -51,7 +51,7 @@ Rode o servidor
 -   react-markdown
 -   Axios
 -   Radix UI
--   phosphor-react
+-   Phosphor Icons / React
 -   date-fns
 -   GitHub Actions (Pipelines CI)
 

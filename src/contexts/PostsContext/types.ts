@@ -1,4 +1,4 @@
-import { GitHubIssue } from '@services/github.api';
+import { GitHubIssue } from '@/services/github.api';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
 export interface IPostsProvider {

@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/allbertuu/blog-do-alberto/compare/v2.1.0...v2.2.0) (2024-03-07)
+
+
+### Features
+
+* **layout:** add vercel speed insights and analytics components ([54ab431](https://github.com/allbertuu/blog-do-alberto/commit/54ab431b437c1d22e3405b69dc5e31c7db446079))
+
 # [2.1.0](https://github.com/allbertuu/blog-do-alberto/compare/v2.0.0...v2.1.0) (2024-03-05)
 
 

@@ -7,6 +7,8 @@ import {
   Nunito_Sans as NunitoSans,
   Titillium_Web as TitilliumWeb,
 } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: {
@@ -56,6 +58,8 @@ export default function RootLayout({
         className={`${titillium.variable} ${nunitoSans.className} bg-blue-700`}
       >
         <ToastProvider />
+        <SpeedInsights />
+        <Analytics />
         <PostsProvider>{children}</PostsProvider>
       </body>
     </html>

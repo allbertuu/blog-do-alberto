@@ -100,7 +100,7 @@ export const PostHeader: React.FC = () => {
             /> */}
 
             <GitHubInfo
-              info={`Leitura de aproximadamente ${readingTimeInMinutes} minutos ☕️`}
+              info={`Leitura de aproximadamente ${readingTimeInMinutes} ${readingTimeInMinutes === 1 ? 'minuto' : 'minutos'} ☕️`}
               icon={
                 <TimerIcon
                   size={'1.2rem'}
